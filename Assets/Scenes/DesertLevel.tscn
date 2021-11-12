@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Materials/snow.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Tracks/DessertTrack.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Cars/cars_kenny/race.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Scenes/ChaseCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Materials/desert_env.tres" type="Environment" id=5]
+
+[sub_resource type="CubeMesh" id=2]
+material = ExtResource( 1 )
+size = Vector3( 1000, 1, 1000 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 500, 0.5, 500 )
+
+[node name="Desert" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Sun" type="DirectionalLight" parent="."]
+transform = Transform( 0.900691, 0.204282, -0.383438, 0.0553926, 0.821364, 0.567708, 0.430915, -0.532569, 0.72848, 0, 24.6044, 0 )
+
+[node name="ChaseCamera" parent="." instance=ExtResource( 4 )]
+environment = ExtResource( 5 )
+current = true
+far = 800.0
+
+[node name="race" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.105969, 0, 0.994369, 0, 1, 0, -0.994369, 0, 0.105969, -17.4907, 3.16898, 65.1494 )
+
+[node name="DessertTrack" parent="." instance=ExtResource( 2 )]
+
+[connection signal="change_camera" from="race" to="ChaseCamera" method="_on_change_camera"]

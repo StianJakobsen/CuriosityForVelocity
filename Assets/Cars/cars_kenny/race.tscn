@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Cars/car_models/race.glb" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Cars/cars_kenny/race.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.645791, 0.318939, 1.277 )
+
+[sub_resource type="CylinderShape" id=2]
+radius = 0.299121
+height = 1.29299
+
+[node name="race" instance=ExtResource( 1 )]
+transform = Transform( 0.998805, 0, 0, 0, 0.998805, 0, 0, 0, 0.998805, -0.00519491, -0.0560076, 0.0155196 )
+script = ExtResource( 2 )
+engine_power = 100
+max_speed_reverse = 25
+
+[node name="body" parent="tmpParent/race" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35088e-13, 0.0986079, 0 )
+
+[node name="wheel_frontLeft" parent="tmpParent/race" index="3"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.35, 0.299, -0.643 )
+
+[node name="wheel_frontRight" parent="tmpParent/race" index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.3, -0.64 )
+
+[node name="CollisionShapeBody" type="CollisionShape" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00460649, 0.42345, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShapeRearWheel" type="CollisionShape" parent="." index="2"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.00562644, 0.301772, 0.882119 )
+shape = SubResource( 2 )
+
+[node name="CollisionShapeFrontWheel" type="CollisionShape" parent="." index="3"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.00562644, 0.304041, -0.641353 )
+shape = SubResource( 2 )
+
+[node name="CameraPositions" type="Spatial" parent="." index="4"]
+
+[node name="MainCamera" type="Position3D" parent="CameraPositions" index="0"]
+transform = Transform( 0.999999, 0, 0, 0, 0.932525, 0.361104, 0, -0.361104, 0.932525, 0, 4.1039, 5.59783 )
+
+[node name="CameraTop" type="Position3D" parent="CameraPositions" index="1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7.84609, 0 )
+
+[node name="CameraFarBack" type="Position3D" parent="CameraPositions" index="2"]
+transform = Transform( 0.999999, 0, 0, 0, 0.964878, 0.262694, 0, -0.262694, 0.964878, 0.00384122, 2.4601, 10.1025 )
+
+[node name="Cockpit" type="Position3D" parent="CameraPositions" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.629582, 0.0391605 )
+
+[node name="RearRay" type="RayCast" parent="." index="5"]
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.0210861, 0.882619 )
+enabled = true
+cast_to = Vector3( 0, -0.25, 0 )
+
+[node name="FrontRay" type="RayCast" parent="." index="6"]
+transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.0271109, -0.641632 )
+enabled = true
+cast_to = Vector3( 0, -0.25, 0 )
+
+[node name="Camera" type="Camera" parent="." index="7"]
+transform = Transform( 1.0012, 0, 0, 0, 0.998855, 0.0684279, 0, -0.0684279, 0.998855, 0, 0.7802, 0.129531 )
