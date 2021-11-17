@@ -14,16 +14,9 @@ config/name="CarGame"
 run/main_scene="res://Assets/Scenes/titleScreen.tscn"
 config/icon="res://icon.png"
 
-<<<<<<< HEAD
-[display]
-
-window/size/width=1280
-window/size/height=800
-=======
 [autoload]
 
 TrackVariables="*res://Assets/Tracks/TrackVariables.gd"
->>>>>>> fb5d7f7891283f2333dcb3dfc40e22eb1d2498a4
 
 [display]
 
