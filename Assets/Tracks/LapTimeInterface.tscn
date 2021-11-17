@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = SubResource( 1 )
+
+[node name="LapTimeInterface" type="Node2D"]
+
+[node name="Time" type="Label" parent="."]
+margin_left = 65.7733
+margin_top = 1.0
+margin_right = 132.773
+margin_bottom = 37.0
+rect_scale = Vector2( 0.981691, 0.989241 )
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lap" type="Label" parent="."]
+margin_top = 1.0
+margin_right = 67.0
+margin_bottom = 37.0
+rect_scale = Vector2( 0.981691, 0.989241 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
