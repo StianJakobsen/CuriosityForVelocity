@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Textures/Background the Painting.png" type="Texture" id=1]
+[ext_resource path="res://Script/backButton.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/DAGGERSQUARE.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 2
+outline_color = Color( 0.0980392, 0.376471, 0.396078, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 2
+outline_color = Color( 0.639216, 1, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="settingsScreen" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 800.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backButton" type="Button" parent="."]
+margin_left = 330.0
+margin_top = 650.0
+margin_right = 950.0
+margin_bottom = 734.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.631373, 0, 0, 1 )
+enabled_focus_mode = 0
+text = "Back to main menu"
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HScrollBar" type="HScrollBar" parent="."]
+margin_left = 520.0
+margin_top = 200.0
+margin_right = 760.0
+margin_bottom = 240.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="soundFX" type="Label" parent="."]
+margin_left = 520.0
+margin_top = 92.104
+margin_right = 760.0
+margin_bottom = 172.104
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Volume"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="backButton" to="backButton" method="_on_backButton_pressed"]
