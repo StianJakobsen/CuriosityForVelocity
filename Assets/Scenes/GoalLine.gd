@@ -27,7 +27,6 @@ func _on_GoalLine_body_entered(body):
 			$LapTimeInterface/Lap.text = "Lap: " + str(track_var.lap)
 			$LapTimeInterface/Time.text = "Time: " + str(track_var.last_lap_time)
 			
-			
 		else:
 			print('You have to cross sector 1 and 2')
 			if track_var.lap == 1:

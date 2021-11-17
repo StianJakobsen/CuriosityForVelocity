@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="CarGame"
-run/main_scene="res://Assets/Scenes/titleScreen.tscn"
+run/main_scene="res://Assets/Scenes/Menu/titleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
