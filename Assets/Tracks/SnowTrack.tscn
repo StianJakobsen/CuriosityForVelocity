@@ -71,7 +71,7 @@ material = SubResource( 3 )
 
 [node name="Ground" type="CSGPolygon" parent="."]
 invert_faces = true
-polygon = PoolVector2Array( -5, -0.1, 5, -0.1, 12, -4.01, 12.1, -4.1, -12.1, -4.1, -12, -4 )
+polygon = PoolVector2Array( -5, -0.1, 5, -0.1, 12, -8.01, 12.1, -8.1, -12.1, -8.1, -12, -8 )
 mode = 2
 path_node = NodePath("..")
 path_interval = 1.0

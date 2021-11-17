@@ -1,9 +1,0 @@
-[gd_resource type="SpatialMaterial" load_steps=2 format=2]
-
-[ext_resource path="res://Assets/Textures/Snow/TexturesCom_Road_Snow1_4x4_1K_normal.jpg" type="Texture" id=1]
-
-[resource]
-roughness = 0.9
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = ExtResource( 1 )

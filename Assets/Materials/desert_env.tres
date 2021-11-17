@@ -1,7 +1,10 @@
-[gd_resource type="Environment" load_steps=2 format=2]
+[gd_resource type="Environment" load_steps=3 format=2]
 
-[ext_resource path="res://Assets/snow.tres" type="PanoramaSky" id=1]
+[ext_resource path="res://Assets/Textures/Desert/TexturesCom_DesertLighthouse_1K_hdri_sphere_tone.jpg" type="Texture" id=1]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 1 )
 
 [resource]
 background_mode = 2
-background_sky = ExtResource( 1 )
+background_sky = SubResource( 1 )

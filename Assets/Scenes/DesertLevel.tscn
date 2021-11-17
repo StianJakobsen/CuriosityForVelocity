@@ -1,40 +1,65 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Assets/Materials/snow.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Materials/desert.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Tracks/DessertTrack.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Cars/cars_kenny/race.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Cars/cars_kenny/RaceCar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Scenes/ChaseCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Materials/desert_env.tres" type="Environment" id=5]
+[ext_resource path="res://Assets/Textures/goal_line.jpeg" type="Texture" id=6]
+[ext_resource path="res://Assets/Scenes/GoalLine.gd" type="Script" id=7]
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="CubeMesh" id=1]
 material = ExtResource( 1 )
 size = Vector3( 1000, 1, 1000 )
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 500, 0.5, 500 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 6 )
+uv1_scale = Vector3( 0.5, 2, 0.5 )
+
+[sub_resource type="CubeMesh" id=5]
+material = SubResource( 6 )
+
+[sub_resource type="BoxShape" id=7]
 
 [node name="Desert" type="Spatial"]
 
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-mesh = SubResource( 2 )
+mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sun" type="DirectionalLight" parent="."]
-transform = Transform( 0.900691, 0.204282, -0.383438, 0.0553926, 0.821364, 0.567708, 0.430915, -0.532569, 0.72848, 0, 24.6044, 0 )
+transform = Transform( 0.432399, 0.878258, -0.204189, -0.278942, 0.345636, 0.895951, 0.857451, -0.330451, 0.394436, 0, 56.1927, 0 )
 
 [node name="ChaseCamera" parent="." instance=ExtResource( 4 )]
 environment = ExtResource( 5 )
 current = true
 far = 800.0
 
-[node name="race" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.105969, 0, 0.994369, 0, 1, 0, -0.994369, 0, 0.105969, -17.4907, 3.16898, 65.1494 )
-
 [node name="DessertTrack" parent="." instance=ExtResource( 2 )]
 
-[connection signal="change_camera" from="race" to="ChaseCamera" method="_on_change_camera"]
+[node name="GoalLine" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 71.2 )
+script = ExtResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="GoalLine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 7.51539, 0, -0.0581264, 2.99393 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="GoalLine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 7.515, 0, 0, 2.994 )
+shape = SubResource( 7 )
+
+[node name="RaceCar" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.0312363, 0, 0.999512, 0, 1, 0, -0.999512, 0, -0.0312363, 20.6321, 3.11996, 74.5772 )
+
+[connection signal="body_entered" from="GoalLine" to="GoalLine" method="_on_GoalLine_body_entered"]
+[connection signal="change_camera" from="RaceCar" to="ChaseCamera" method="_on_change_camera"]
