@@ -16,7 +16,8 @@ func msec_to_time_string(time):
 	return str(minute) + ":" + str(sec) + ":" + str(msec)
 
 func _on_GoalLine_body_entered(body):
-	if body.is_in_group('RaceCar'):
+	print(body)
+	if body.is_in_group('Car'):
 		if track_var.start:
 			track_var.time_start = OS.get_ticks_msec()
 			track_var.time_start_lap = OS.get_ticks_msec()
@@ -34,6 +35,7 @@ func _on_GoalLine_body_entered(body):
 			$LapTimeInterface/LapTime.text = $LapTimeInterface/LapTime.text + "Time: " + str(track_var.last_lap_time) + ' \n'
 			
 			if (track_var.lap - 1) == track_var.num_laps:
+				clear()
 				get_tree().change_scene("res://Assets/Scenes/Menu/gameOverScreen.tscn")
 			else:
 				$LapTimeInterface/Lap.text = $LapTimeInterface/Lap.text  + "\nLap: " + str(track_var.lap)
@@ -44,12 +46,15 @@ func _on_GoalLine_body_entered(body):
 			print('You have to cross sector 1 and 2')
 				
 func _on_Sector1_body_entered(body):
-	if body.is_in_group('RaceCar'):
+	if body.is_in_group('Car'):
 		track_var.sector1 = true
 		print('Sector 1 is entered')
 
 
 func _on_Sector2_body_entered(body):
-	if body.is_in_group('RaceCar'):
+	if body.is_in_group('Car'):
 		track_var.sector2 = true
 		print('Sector 2 is eneterd')
+
+func clear():
+	track_var.clear()

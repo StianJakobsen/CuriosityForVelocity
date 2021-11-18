@@ -13,7 +13,7 @@ radius = 0.299121
 height = 1.29299
 
 [node name="RaceCar" groups=[
-"RaceCar",
+"Car",
 ] instance=ExtResource( 1 )]
 transform = Transform( 0.998805, 0, 0, 0, 0.998805, 0, 0, 0, 0.998805, -0.00519491, -0.0560076, 0.0155196 )
 script = ExtResource( 2 )

@@ -16,3 +16,7 @@ func _on_change_camera(t):
 
 func _on_RaceCar_change_camera(t):
 	target = t
+
+
+func _on_CarPickup_change_camera(t):
+	target = t

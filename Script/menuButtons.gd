@@ -42,24 +42,16 @@ func _on_desertButton_pressed():
 
 # Car select
 func _on_car1Button_pressed(): # Racecar
-	track_var.car = 0
-	start_game()
-	pass
+	if track_var.track == 0:
+		get_tree().change_scene("res://Assets/Scenes/SnowLevelRace.tscn")
+	if track_var.track == 1:
+		get_tree().change_scene("res://Assets/Scenes/DesertLevelRace.tscn")
 
 func _on_car2Button_pressed(): # Truck
-	track_var.car = 1
-	start_game()
-	pass
-
-func start_game(): # Lacks implementation.
-	var track = track_var.tracks[track_var.track]
-	var car = track_var.cars[track_var.car]
-	get_tree().change_scene("res://Main.tscn")
-	
-	
-	# add selected car to the selected map and position
-	# add_child_node()?
-	pass
+	if track_var.track == 0:
+		get_tree().change_scene("res://Assets/Scenes/SnowLevelPickup.tscn")
+	if track_var.track == 1:
+		get_tree().change_scene("res://Assets/Scenes/DesertLevelPickup.tscn")
 
 # Music control
 func _on_playSeaShanty_pressed():

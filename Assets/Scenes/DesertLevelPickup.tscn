@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Materials/desert.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Tracks/DessertTrack.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Cars/cars_kenny/CarPickup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Scenes/ChaseCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Materials/desert_env.tres" type="Environment" id=5]
+
+[sub_resource type="CubeMesh" id=1]
+material = ExtResource( 1 )
+size = Vector3( 1000, 1, 1000 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 500, 0.5, 500 )
+
+[sub_resource type="Curve3D" id=3]
+_data = {
+"points": PoolVector3Array( -18.0056, -4.41074e-06, 4.86697, 18.0056, 4.41074e-06, -4.86697, -78.0416, 0.417425, -99.05, -15.4648, -0.984111, -6.07939, 15.4648, 0.984111, 6.07939, 64.0821, 3.46093, -98.7312, 10.3021, 0, -11.3805, -10.3021, 0, 11.3805, 54.0787, 5.91605, -54.3445, -1.08694, 0, -30.7867, 1.08694, 0, 30.7867, -21.7363, 0, -66.3484, -16.74, 0, -5.46938, 16.74, 0, 5.46938, 64.8038, 0, -20.5659, -4.76327, 0, 3.64774, 4.76327, 0, -3.64774, 108.027, 4.05509, -76.3983, -4.2492, 0, -5.09455, 4.2492, 0, 5.09455, 126.152, 3.49405, -74.9329, 26.4161, 0, 0.0514011, -26.4161, 0, -0.0514011, 120.584, 0, -20.7785, 5.15031, 0, -25.6935, -5.15031, 0, 25.6935, 101.264, 0, 22.6603, 0, 0, 0, 0, 0, 0, -7.17966, -0.0508423, 49.6577, 25.641, 1.64756, 11.2903, -25.641, -1.64756, -11.2903, -78.3749, 0.987325, 40.4434, 29.2804, 0, 14.7419, -29.2804, 0, -14.7419, -70.1722, 5.20203, -18.1944, 0, 0, 0, 0, 0, 0, -100.565, 0, -74.8219, -19.7742, 0, 2.73641, 19.7742, 0, -2.73641, -77.8948, 0.356151, -99.0782 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[node name="DesertPickup" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Sun" type="DirectionalLight" parent="."]
+transform = Transform( 0.432399, 0.878258, -0.204189, -0.278942, 0.345636, 0.895951, 0.857451, -0.330451, 0.394436, 0, 56.1927, 0 )
+
+[node name="ChaseCamera" parent="." instance=ExtResource( 4 )]
+environment = ExtResource( 5 )
+far = 800.0
+
+[node name="DessertTrack" parent="." instance=ExtResource( 2 )]
+curve = SubResource( 3 )
+
+[node name="CarPickup" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.046287, 0, 0.998928, 0, 1, 0, -0.998928, 0, -0.046287, 0, 2.13538, 59.0714 )
+acceleration = 80
+
+[connection signal="change_camera" from="CarPickup" to="ChaseCamera" method="_on_CarPickup_change_camera"]
