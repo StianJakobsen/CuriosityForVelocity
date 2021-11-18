@@ -88,6 +88,7 @@ func get_input():
 	$tmpParent/race/wheel_frontLeft.rotation.y = deg2rad(180) + steer_angle*2
 	acceleration = Vector3.ZERO
 	if Input.is_action_pressed("accelerate"):
+		
 		acceleration = -transform.basis.z * engine_power
 	if Input.is_action_pressed("brake"):
 		acceleration = -transform.basis.z * braking

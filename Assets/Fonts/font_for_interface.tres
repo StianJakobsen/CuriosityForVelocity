@@ -4,4 +4,5 @@
 font_path = "res://Assets/Fonts/DAGGERSQUARE.otf"
 
 [resource]
+size = 30
 font_data = SubResource( 1 )

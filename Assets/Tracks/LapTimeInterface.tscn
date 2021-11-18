@@ -4,11 +4,11 @@
 
 [node name="LapTimeInterface" type="Node2D"]
 
-[node name="Time" type="Label" parent="."]
-margin_left = 75.0
+[node name="LapTime" type="Label" parent="."]
+margin_left = 100.0
 margin_top = 1.0
-margin_right = 142.0
-margin_bottom = 37.0
+margin_right = 167.0
+margin_bottom = 38.0
 rect_scale = Vector2( 0.981691, 0.989241 )
 custom_fonts/font = ExtResource( 1 )
 __meta__ = {
@@ -16,10 +16,21 @@ __meta__ = {
 }
 
 [node name="Lap" type="Label" parent="."]
+margin_left = 10.0
 margin_top = 1.0
-margin_right = 67.0
+margin_right = 77.0
 margin_bottom = 37.0
 rect_scale = Vector2( 0.981691, 0.989241 )
+custom_fonts/font = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Label" parent="."]
+margin_left = 1125.0
+margin_top = 1.0
+margin_right = 1165.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
