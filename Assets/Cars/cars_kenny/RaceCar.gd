@@ -11,7 +11,6 @@ var timer4
 var timer5
 
 var nuOfFinishedTimers = 0
-
 var sound_has_played = false
 
 func _ready():
