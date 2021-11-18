@@ -9,6 +9,9 @@ var timer2
 var timer3
 var timer4
 var timer5
+
+var nuOfFinishedTimers = 0
+
 var sound_has_played = false
 
 func _ready():
@@ -18,48 +21,58 @@ func _ready():
 	add_child(timer) 
 	timer.start() 
 	emit_signal("change_camera", $CameraPositions.get_child(current_camera))
-	
+	nuOfFinishedTimers += 1
 
 func _on_timer_timeout_1():
-	timer2 = Timer.new()
-	timer2.connect("timeout",self,"_on_timer_timeout_2")
-	timer2.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
-	add_child(timer2)
-	if !sound_has_played:
-			sound_has_played = true
-			$MarioStartSound.play()
-	timer2.start()
-	$Countdown/Label.add_color_override("font_color",Color("ff0000"))
-	$Countdown/Label.set('text', '3')
+	if nuOfFinishedTimers < 2:
+		timer2 = Timer.new()
+		timer2.connect("timeout",self,"_on_timer_timeout_2")
+		timer2.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
+		add_child(timer2)
+		if !sound_has_played:
+				sound_has_played = true
+				$MarioStartSound.play()
+		timer2.start()
+		$Countdown/Label.add_color_override("font_color",Color("ff0000"))
+		$Countdown/Label.set('text', '3')
+		nuOfFinishedTimers += 1
 
 func _on_timer_timeout_2():
-	timer3 = Timer.new()
-	timer3.connect("timeout",self,"_on_timer_timeout_3")
-	timer3.set_wait_time(1)
-	add_child(timer3) 
-	timer3.start() 
-	$Countdown/Label.set('text', '2')
+	if nuOfFinishedTimers < 3:
+		timer3 = Timer.new()
+		timer3.connect("timeout",self,"_on_timer_timeout_3")
+		timer3.set_wait_time(1)
+		add_child(timer3) 
+		timer3.start() 
+		$Countdown/Label.set('text', '2')
+		nuOfFinishedTimers += 1
 	
 func _on_timer_timeout_3():
-	timer4 = Timer.new()
-	timer4.connect("timeout",self,"_on_timer_timeout_4")
-	timer4.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
-	add_child(timer4) 
-	timer4.start() 
-	$Countdown/Label.set('text', '1')
+	if nuOfFinishedTimers < 4:
+		timer4 = Timer.new()
+		timer4.connect("timeout",self,"_on_timer_timeout_4")
+		timer4.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
+		add_child(timer4) 
+		timer4.start() 
+		$Countdown/Label.set('text', '1')
+		nuOfFinishedTimers += 1
 
 func _on_timer_timeout_4():
-	timer5 = Timer.new()
-	timer5.connect("timeout",self,"_on_timer_timeout_5")
-	timer5.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
-	add_child(timer5) 
-	timer5.start()
-	track_var.input_allowed = true
-	$Countdown/Label.add_color_override("font_color",Color("00ff00"))
-	$Countdown/Label.set('text', 'GO!')
+	if nuOfFinishedTimers < 5:
+		timer5 = Timer.new()
+		timer5.connect("timeout",self,"_on_timer_timeout_5")
+		timer5.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
+		add_child(timer5) 
+		timer5.start()
+		track_var.input_allowed = true
+		$Countdown/Label.add_color_override("font_color",Color("00ff00"))
+		$Countdown/Label.set('text', 'GO!')
+		nuOfFinishedTimers += 1
 	
 func _on_timer_timeout_5():
-	$Countdown/Label.set('text', '')
+	if nuOfFinishedTimers < 6:
+		$Countdown/Label.set('text', '')
+		nuOfFinishedTimers += 1
 
 func _input(event):
 	if event.is_action_pressed("change_camera"):
