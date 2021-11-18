@@ -4,6 +4,7 @@ signal change_camera
 
 var current_camera = 0
 onready var num_cameras = $CameraPositions.get_child_count()
+var power = 0
 
 func _ready():
 	emit_signal("change_camera", $CameraPositions.get_child(current_camera))
@@ -22,6 +23,7 @@ func get_input():
 	$tmpParent/race/wheel_frontLeft.rotation.y = deg2rad(180) + steer_angle*2
 	acceleration = Vector3.ZERO
 	if Input.is_action_pressed("accelerate"):
+		
 		acceleration = -transform.basis.z * engine_power
 	if Input.is_action_pressed("brake"):
 		acceleration = -transform.basis.z * braking
