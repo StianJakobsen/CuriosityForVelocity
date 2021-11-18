@@ -5,6 +5,10 @@ signal change_camera
 var current_camera = 0
 onready var num_cameras = $CameraPositions.get_child_count()
 var timer
+var timer2
+var timer3
+var timer4
+var timer5
 var sound_has_played = false
 
 func _ready():
@@ -17,35 +21,39 @@ func _ready():
 	
 
 func _on_timer_timeout_1():
-	timer.connect("timeout",self,"_on_timer_timeout_2")
-	timer.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
-	add_child(timer)
+	timer2 = Timer.new()
+	timer2.connect("timeout",self,"_on_timer_timeout_2")
+	timer2.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
+	add_child(timer2)
 	if !sound_has_played:
 			sound_has_played = true
 			$MarioStartSound.play()
-	timer.start()
+	timer2.start()
 	$Countdown/Label.add_color_override("font_color",Color("ff0000"))
 	$Countdown/Label.set('text', '3')
 
 func _on_timer_timeout_2():
-	timer.connect("timeout",self,"_on_timer_timeout_3")
-	timer.set_wait_time(1)
-	add_child(timer) 
-	timer.start() 
+	timer3 = Timer.new()
+	timer3.connect("timeout",self,"_on_timer_timeout_3")
+	timer3.set_wait_time(1)
+	add_child(timer3) 
+	timer3.start() 
 	$Countdown/Label.set('text', '2')
 	
 func _on_timer_timeout_3():
-	timer.connect("timeout",self,"_on_timer_timeout_4")
-	timer.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
-	add_child(timer) 
-	timer.start() 
+	timer4 = Timer.new()
+	timer4.connect("timeout",self,"_on_timer_timeout_4")
+	timer4.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
+	add_child(timer4) 
+	timer4.start() 
 	$Countdown/Label.set('text', '1')
 
 func _on_timer_timeout_4():
-	timer.connect("timeout",self,"_on_timer_timeout_5")
-	timer.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
-	add_child(timer) 
-	timer.start()
+	timer5 = Timer.new()
+	timer5.connect("timeout",self,"_on_timer_timeout_5")
+	timer5.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
+	add_child(timer5) 
+	timer5.start()
 	track_var.input_allowed = true
 	$Countdown/Label.add_color_override("font_color",Color("00ff00"))
 	$Countdown/Label.set('text', 'GO!')
