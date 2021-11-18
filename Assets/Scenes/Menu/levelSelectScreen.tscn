@@ -59,9 +59,9 @@ __meta__ = {
 
 [node name="snowButton" type="Button" parent="."]
 margin_left = 20.0
-margin_top = 100.0
+margin_top = 50.0
 margin_right = 630.0
-margin_bottom = 470.0
+margin_bottom = 420.0
 custom_styles/hover = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
 script = ExtResource( 3 )
@@ -91,9 +91,9 @@ __meta__ = {
 
 [node name="desertButton" type="Button" parent="."]
 margin_left = 650.0
-margin_top = 100.0
+margin_top = 50.0
 margin_right = 1260.0
-margin_bottom = 470.0
+margin_bottom = 420.0
 custom_styles/hover = SubResource( 4 )
 script = ExtResource( 3 )
 __meta__ = {

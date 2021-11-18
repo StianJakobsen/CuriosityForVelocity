@@ -7,7 +7,7 @@ var default = load("res://Assets/Music/aggressive_racing.mp3")
 func _ready():
 	$Music.stream = default
 	$Music.play()
-	
+
 func change_to_song(song):
 	$Music.stream = song
 	$Music.play()
