@@ -34,7 +34,7 @@ func _on_GoalLine_body_entered(body):
 			$LapTimeInterface/LapTime.text = $LapTimeInterface/LapTime.text + "Time: " + str(track_var.last_lap_time) + ' \n'
 			
 			if (track_var.lap - 1) == track_var.num_laps:
-				get_tree().paused = true
+				get_tree().change_scene("res://Assets/Scenes/Menu/gameOverScreen.tscn")
 			else:
 				$LapTimeInterface/Lap.text = $LapTimeInterface/Lap.text  + "\nLap: " + str(track_var.lap)
 			

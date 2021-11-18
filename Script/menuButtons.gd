@@ -30,35 +30,33 @@ func _on_quitButton_pressed():
 
 # Level select
 func _on_snowButton_pressed():
-	track_var.track = 1
+	track_var.track = 0
 	get_tree().change_scene("res://Assets/Scenes/Menu/carSelectScreen.tscn")
 	pass
 
 func _on_desertButton_pressed():
-	track_var.track = 2
+	track_var.track = 1
 	get_tree().change_scene("res://Assets/Scenes/Menu/carSelectScreen.tscn")
 	pass
 
 
 # Car select
 func _on_car1Button_pressed(): # Racecar
-	track_var.car = 1
+	track_var.car = 0
 	start_game()
 	pass
 
 func _on_car2Button_pressed(): # Truck
-	track_var.car = 2
-	start_game()
-	pass
-
-func _on_car3Button_pressed(): # Buggy
-	track_var.car = 3
+	track_var.car = 1
 	start_game()
 	pass
 
 func start_game(): # Lacks implementation.
-	var track = track_var.track
-	var car = track_var.car
+	var track = track_var.tracks[track_var.track]
+	var car = track_var.cars[track_var.car]
+	get_tree().change_scene("res://Main.tscn")
+	
+	
 	# add selected car to the selected map and position
 	# add_child_node()?
 	pass
