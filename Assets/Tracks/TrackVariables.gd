@@ -1,6 +1,5 @@
 extends Node
 
-
 var lap = 1
 var num_laps = 1
 
@@ -13,8 +12,8 @@ var last_lap_time
 var time_start = 0
 
 # Settings
-var volume = 1
+var volume = 100	# 0 to 100
 
 # Track/car selection
-var track = 0		# 1 = desert. 2 = snow. 3 = not implemented
-var car = 0			# 1 = car1. 2 = car2. 3 = car3.
+var track = 1		# 1 = desert. 2 = snow.
+var car = 1			# 1 = racecar. 2 = car2. 3 = car3.

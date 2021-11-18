@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/aggressive_racing.mp3-a4030b698ca2ea1ad26f7a23d666a917.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/aggressive_racing.mp3"
+dest_files=[ "res://.import/aggressive_racing.mp3-a4030b698ca2ea1ad26f7a23d666a917.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

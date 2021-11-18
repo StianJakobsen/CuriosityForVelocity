@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/seaShanty2.mp3-e07fc15dc5fcea65d6b7b0f57d7887ca.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/seaShanty2.mp3"
+dest_files=[ "res://.import/seaShanty2.mp3-e07fc15dc5fcea65d6b7b0f57d7887ca.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
