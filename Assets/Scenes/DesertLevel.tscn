@@ -35,6 +35,6 @@ far = 800.0
 [node name="DessertTrack" parent="." instance=ExtResource( 2 )]
 
 [node name="RaceCar" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.0647239, 0, 0.997903, 0, 1, 0, -0.997903, 0, -0.0647239, 12.815, 4.31267, 72.6877 )
+transform = Transform( -0.0647239, 0, 0.997903, 0, 1, 0, -0.997903, 0, -0.0647239, 20.4133, 7.2224, 76.443 )
 
 [connection signal="change_camera" from="RaceCar" to="ChaseCamera" method="_on_change_camera"]

@@ -9,6 +9,8 @@ export var post_distance = 1.0 setget set_post_distance, get_post_distance
 var change_track = true
 
 
+
+
 func set_track_width(new_width):
 	if track_width != new_width:
 		track_width = new_width

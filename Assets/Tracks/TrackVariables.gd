@@ -18,3 +18,5 @@ var volume = 1
 # Track/car selection
 var track = 0		# 1 = desert. 2 = snow. 3 = not implemented
 var car = 0			# 1 = car1. 2 = car2. 3 = car3.
+
+var input_allowed = false

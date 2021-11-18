@@ -2,6 +2,8 @@ extends Area
 
 onready var track_var = get_node("/root/TrackVariables")
 
+
+
 func msec_to_time_string(time):
 	var total_sec = time / 1000
 	var minute = floor(total_sec / 60)
