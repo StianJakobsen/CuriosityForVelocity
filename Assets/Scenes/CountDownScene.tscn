@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Fonts/DAGGERSQUARE.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 150
+outline_color = Color( 1, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[node name="Countdown" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 490.0
+margin_top = 287.0
+margin_right = 790.0
+margin_bottom = 468.0
+custom_fonts/font = SubResource( 2 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -7,8 +7,8 @@ export var wheel_base = 2  # distance between front/rear axles
 
 export var steering_limit = 6.0  # front wheel max turning angle (deg)
 
-export var engine_power = 15
-export var braking = -9.0
+export var engine_power = 50
+export var braking = -20
 export var friction = -10.0
 export var drag = -2.0
 export var max_speed_reverse = 10
@@ -27,8 +27,13 @@ var velocity = Vector3.ZERO  # current velocity
 
 var steer_angle = 0.0  # current wheel angle
 
+onready var track_var = get_node("/root/TrackVariables")
+
+
+
+
 func _physics_process(delta):
-	if is_on_floor():
+	if is_on_floor() && track_var.input_allowed:
 		get_input()
 		apply_friction(delta)
 		calculate_steering(delta)

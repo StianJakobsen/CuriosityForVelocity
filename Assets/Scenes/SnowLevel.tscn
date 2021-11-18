@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Tracks/SnowTrack.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Textures/Snow/TexturesCom_Road_Snow1_4x4_1K_normal.jpg" type="Texture" id=2]
@@ -6,38 +6,29 @@
 [ext_resource path="res://Assets/Cars/cars_kenny/RaceCar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Materials/snow_env.tres" type="Environment" id=5]
 
-[sub_resource type="Curve3D" id=1]
-_data = {
-"points": PoolVector3Array( -4.69939, 0, -18.1681, 4.69939, 0, 18.1681, 109.277, 0, -43.6607, -1.9278, 0, -25.855, 1.9278, 0, 25.855, 115.674, 0, 38.1802, 21.0251, 0, 9.90563, -21.0251, 0, -9.90563, 54.5746, 0, 39.6829, 7.91793, 0.000518799, 20.0965, -7.91793, -0.000518799, -20.0965, 74.4104, 0, -17.6553, 24.0431, 0, -9.73887, -24.0431, 0, 9.73887, 8.14261, 2.5531, 3.0919, 13.3693, 0, -9.67273, -13.3693, 0, 9.67273, -43.1156, 0, -9.8191, 3.29633, 0, -9.9749, -3.29633, 0, 9.9749, -21.8205, 2.6443, 44.8688, 13.0492, 0, 7.35736, -13.0492, 0, -7.35736, -78.6994, 0, 51.4436, 20.0326, 0, 0.604925, -20.0326, 0, -0.604925, -76.9572, 0, 0.480525, -8.06896, 0, 9.04834, 8.06896, 0, -9.04834, -66.6576, 0, -43.2403, 0, 0, 0, 0, 0, 0, -27.5029, 0, -54.9891, -16.7178, 0, 0.181187, 16.7178, 0, -0.181187, 43.228, 5.56765, -60.3669, -2.20551, 0, -16.7198, 2.20551, 0, 16.7198, 109.277, 0, -43.6607 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
-}
-
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=1]
 roughness = 0.9
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 2 )
 
-[sub_resource type="CubeMesh" id=3]
-material = SubResource( 2 )
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
 size = Vector3( 1000, 1, 1000 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 500, 0.5, 500 )
 
 [node name="SnowLevel" type="Spatial"]
 
-[node name="SnowTrack" parent="." instance=ExtResource( 1 )]
-curve = SubResource( 1 )
-
 [node name="Ground" type="StaticBody" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground"]
-mesh = SubResource( 3 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Sun" type="DirectionalLight" parent="."]
 transform = Transform( 0.900691, 0.204282, -0.383439, 0.0553926, 0.821364, 0.567708, 0.430915, -0.532569, 0.728479, 0, 8.62851, 0 )
@@ -47,7 +38,9 @@ environment = ExtResource( 5 )
 current = true
 far = 200.0
 
-[node name="race" parent="." instance=ExtResource( 4 )]
-transform = Transform( -0.464533, 0, -0.885555, 0, 1, 0, 0.885555, 0, -0.464533, -17.4907, 4.66558, 4.55458 )
+[node name="SnowTrack" parent="." instance=ExtResource( 1 )]
 
-[connection signal="change_camera" from="race" to="ChaseCamera" method="_on_change_camera"]
+[node name="RaceCar" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.137323, 0, -0.990526, 0, 1, 0, 0.990526, 0, 0.137323, 12.2433, 2.0537, -72.6386 )
+
+[connection signal="change_camera" from="RaceCar" to="ChaseCamera" method="_on_RaceCar_change_camera"]
