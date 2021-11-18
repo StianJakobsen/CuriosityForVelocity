@@ -73,3 +73,15 @@ func _on_playFanfare_pressed():
 func _on_playRacingMusic_pressed():
 	BackgroundMusic.change_to_song(load("res://Assets/Music/aggressive_racing.mp3"))
 	pass
+
+func _on_playMegalovania_pressed():
+	BackgroundMusic.change_to_song(load("res://Assets/Music/MEGALOVANIA.mp3"))
+	pass
+
+func _on_playFluff_pressed():
+	BackgroundMusic.change_to_song(load("res://Assets/Music/fluff.mp3"))
+	pass
+	
+func _on_playMario_pressed():
+	BackgroundMusic.change_to_song(load("res://Assets/Music/Mario.mp3"))
+	pass

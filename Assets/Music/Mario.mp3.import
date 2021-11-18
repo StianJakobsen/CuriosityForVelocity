@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mario.mp3-3ec5fb1170c6020c9c189fb041fa4dc8.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Mario.mp3"
+dest_files=[ "res://.import/Mario.mp3-3ec5fb1170c6020c9c189fb041fa4dc8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fluff.mp3-75d3628deaf2a4e47c9409ff1b512c85.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/fluff.mp3"
+dest_files=[ "res://.import/fluff.mp3-75d3628deaf2a4e47c9409ff1b512c85.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
