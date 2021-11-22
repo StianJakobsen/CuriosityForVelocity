@@ -1,35 +1,27 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Cars/cars_kenny/CarPickup.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Cars/cars_kenny/texture_09.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Cars/car_models/truck.glb" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Cars/cars_kenny/Smoke.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Scenes/CountDownScene.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Sounds/Mario_beeping2.wav" type="AudioStream" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.1
 
 [sub_resource type="SphereShape" id=2]
-
-[sub_resource type="SphereMesh" id=3]
-
-[sub_resource type="SpatialMaterial" id=4]
-flags_unshaded = true
-flags_do_not_receive_shadows = true
-flags_disable_ambient_light = true
-albedo_texture = ExtResource( 2 )
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.348148, 0.992593 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.627451, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=6]
+[sub_resource type="GradientTexture" id=12]
 gradient = SubResource( 5 )
 
 [sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 0.306122 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.766582 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=8]
+[sub_resource type="CurveTexture" id=13]
 curve = SubResource( 7 )
 
 [sub_resource type="ParticlesMaterial" id=9]
@@ -38,22 +30,21 @@ emission_box_extents = Vector3( 0.2, 0, 0.2 )
 direction = Vector3( 0, 0, 0 )
 spread = 0.0
 gravity = Vector3( 0, 1, 0 )
-scale_curve = SubResource( 8 )
-color_ramp = SubResource( 6 )
+scale_curve = SubResource( 13 )
+color_ramp = SubResource( 12 )
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=14]
 flags_transparent = true
 flags_do_not_receive_shadows = true
 vertex_color_use_as_albedo = true
 
 [sub_resource type="SphereMesh" id=11]
-material = SubResource( 10 )
+material = SubResource( 14 )
 
 [node name="CarPickup" type="Spatial" groups=[
 "Car",
 ]]
 script = ExtResource( 1 )
-acceleration = 65
 
 [node name="Ball" type="RigidBody" parent="." groups=[
 "Car",
@@ -66,20 +57,16 @@ angular_damp = 5.0
 [node name="CollisionShape" type="CollisionShape" parent="Ball"]
 shape = SubResource( 2 )
 
-[node name="DebugMesh" type="MeshInstance" parent="Ball"]
-mesh = SubResource( 3 )
-material/0 = SubResource( 4 )
-
 [node name="CarMesh" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 
-[node name="Smoke" parent="CarMesh" instance=ExtResource( 4 )]
+[node name="SmokeLeft" parent="CarMesh" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520535, 0, 0.549937 )
 emitting = false
 process_material = SubResource( 9 )
 draw_pass_1 = SubResource( 11 )
 
-[node name="Smoke2" parent="CarMesh" instance=ExtResource( 4 )]
+[node name="SmokeRight" parent="CarMesh" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.474042, 0, 0.549937 )
 emitting = false
 process_material = SubResource( 9 )

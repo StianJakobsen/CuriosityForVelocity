@@ -4,6 +4,12 @@ signal change_camera
 
 var current_camera = 0
 onready var num_cameras = $CameraPositions.get_child_count()
+onready var camera_postitions = $CameraPositions
+onready var right_wheel = $tmpParent/race/wheel_frontRight
+onready var left_wheel = $tmpParent/race/wheel_frontLeft
+onready var left_smoke = $SmokeLeft
+onready var right_smoke = $SmokeRight
+onready var label = $Countdown/Label
 var timer
 var timer2
 var timer3
@@ -20,7 +26,7 @@ func _ready():
 	timer.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
 	add_child(timer) 
 	timer.start() 
-	emit_signal("change_camera", $CameraPositions.get_child(current_camera))
+	emit_signal("change_camera", camera_postitions.get_child(current_camera))
 	nuOfFinishedTimers += 1
 
 func _on_timer_timeout_1():
@@ -33,8 +39,8 @@ func _on_timer_timeout_1():
 				sound_has_played = true
 				$MarioStartSound.play()
 		timer2.start()
-		$Countdown/Label.add_color_override("font_color",Color("ff0000"))
-		$Countdown/Label.set('text', '3')
+		label.add_color_override("font_color",Color("ff0000"))
+		label.set('text', '3')
 		nuOfFinishedTimers += 1
 
 func _on_timer_timeout_2():
@@ -44,7 +50,7 @@ func _on_timer_timeout_2():
 		timer3.set_wait_time(1)
 		add_child(timer3) 
 		timer3.start() 
-		$Countdown/Label.set('text', '2')
+		label.set('text', '2')
 		nuOfFinishedTimers += 1
 	
 func _on_timer_timeout_3():
@@ -54,7 +60,7 @@ func _on_timer_timeout_3():
 		timer4.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
 		add_child(timer4) 
 		timer4.start() 
-		$Countdown/Label.set('text', '1')
+		label.set('text', '1')
 		nuOfFinishedTimers += 1
 
 func _on_timer_timeout_4():
@@ -65,34 +71,38 @@ func _on_timer_timeout_4():
 		add_child(timer5) 
 		timer5.start()
 		track_var.input_allowed = true
-		$Countdown/Label.add_color_override("font_color",Color("00ff00"))
-		$Countdown/Label.set('text', 'GO!')
+		label.add_color_override("font_color",Color("00ff00"))
+		label.set('text', 'GO!')
 		nuOfFinishedTimers += 1
 	
 func _on_timer_timeout_5():
 	if nuOfFinishedTimers < 6:
-		$Countdown/Label.set('text', '')
+		label.set('text', '')
 		nuOfFinishedTimers += 1
 
 func _input(event):
 	if event.is_action_pressed("change_camera"):
 		current_camera = wrapi(current_camera + 1, 0, num_cameras)
-		emit_signal("change_camera", $CameraPositions.get_child(current_camera))
-	
+		emit_signal("change_camera", camera_postitions.get_child(current_camera))
 
 
 func get_input():
 	var turn = Input.get_action_strength("steer_left")
 	turn -= Input.get_action_strength("steer_right")
 	steer_angle = turn * deg2rad(steering_limit)
-	$tmpParent/race/wheel_frontRight.rotation.y = steer_angle*2
-	$tmpParent/race/wheel_frontLeft.rotation.y = deg2rad(180) + steer_angle*2
+	right_wheel.rotation.y = steer_angle*2
+	left_wheel.rotation.y = deg2rad(180) + steer_angle*2
 	acceleration = Vector3.ZERO
 	if Input.is_action_pressed("accelerate"):
+		
 		acceleration = -transform.basis.z * engine_power
 	if Input.is_action_pressed("brake"):
 		acceleration = -transform.basis.z * braking
-#	if Input.is_action_pressed("pause"):
-#		track_var.time_paused = OS.get_ticks_msec()
-#		get_tree().paused = true
-#		$pauseScreen.show()
+	
+	if acceleration.length() > 0:
+		left_smoke.emitting = true
+		right_smoke.emitting = true
+	else:
+		left_smoke.emitting = false
+		right_smoke.emitting = false
+		

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Cars/car_models/race.glb" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Cars/cars_kenny/RaceCar.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Scenes/CountDownScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Sounds/Mario_beeping2.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Cars/cars_kenny/Smoke.tscn" type="PackedScene" id=5]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.645791, 0.318939, 1.277 )
@@ -11,6 +12,36 @@ extents = Vector3( 0.645791, 0.318939, 1.277 )
 [sub_resource type="CylinderShape" id=2]
 radius = 0.299121
 height = 1.29299
+
+[sub_resource type="Gradient" id=11]
+offsets = PoolRealArray( 0, 0.348148, 0.992593 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.627451, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 11 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0, 0.306122 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.766582 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+emission_shape = 2
+emission_box_extents = Vector3( 0.2, 0, 0.2 )
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 1, 0 )
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 6 )
+
+[sub_resource type="SpatialMaterial" id=10]
+flags_transparent = true
+flags_do_not_receive_shadows = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id=14]
+material = SubResource( 10 )
 
 [node name="RaceCar" groups=[
 "Car",
@@ -73,3 +104,15 @@ transform = Transform( 1.0012, 0, 0, 0, 0.998855, 0.0684279, 0, -0.0684279, 0.99
 [node name="MarioStartSound" type="AudioStreamPlayer" parent="." index="9"]
 pause_mode = 1
 stream = ExtResource( 4 )
+
+[node name="SmokeLeft" parent="." index="10" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520535, 0, 0.549937 )
+emitting = false
+process_material = SubResource( 13 )
+draw_pass_1 = SubResource( 14 )
+
+[node name="SmokeRight" parent="." index="11" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.474042, 0, 0.549937 )
+emitting = false
+process_material = SubResource( 13 )
+draw_pass_1 = SubResource( 14 )
