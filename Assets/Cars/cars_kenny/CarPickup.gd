@@ -38,7 +38,7 @@ var timer5
 var nuOfFinishedTimers = 0
 var sound_has_played = false
 
-onready var track_var = get_node("/root/TrackVariables")
+onready var glob_var = get_node("/root/GlobalVariables")
 
 func _ready():
 	$pauseScreen.hide()
@@ -93,9 +93,9 @@ func _on_timer_timeout_4():
 		timer5.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
 		add_child(timer5) 
 		timer5.start()
-		track_var.input_allowed = true
-		countdown_label.add_color_override("font_color",Color("00ff00"))
-		countdown_label.set('text', 'GO!')
+		glob_var.input_allowed = true
+		$Countdown/Label.add_color_override("font_color",Color("00ff00"))
+		$Countdown/Label.set('text', 'GO!')
 		nuOfFinishedTimers += 1
 	
 func _on_timer_timeout_5():
@@ -105,7 +105,13 @@ func _on_timer_timeout_5():
 
 	
 func _process(delta):
-	if not track_var.input_allowed:
+#	if Input.is_action_pressed("pause") and glob_var.input_allowed:
+#		glob_var.time_paused = OS.get_ticks_msec()
+#		get_tree().paused = true
+#		$pauseScreen.show()
+	
+	# Can't steer/accelerate when in the air
+	if not ground_ray.is_colliding() or not glob_var.input_allowed:
 		return
 	speed_input = 0
 	speed_input += Input.get_action_strength("accelerate") - Input.get_action_strength("brake")*0.2

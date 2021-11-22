@@ -8,7 +8,6 @@ var sector2 = false
 var start = true
 
 var time_paused = 0
-
 var last_lap_time
 
 var time_start = 0

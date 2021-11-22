@@ -1,11 +1,11 @@
 extends Control
 
 
-onready var track_var = get_node("/root/TrackVariables")
+onready var glob_var = get_node("/root/GlobalVariables")
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Time.text = track_var.last_lap_time
-	$Highscore.text = track_var.msec_to_time_string(track_var.read_savegame(track_var.higscore_key))
+	$Time.text = glob_var.last_lap_time
+	$Highscore.text = glob_var.msec_to_time_string(glob_var.read_savegame(glob_var.higscore_key))

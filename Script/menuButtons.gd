@@ -1,12 +1,12 @@
 extends Button
 
-onready var track_var = get_node("/root/TrackVariables")
+onready var glob_var = get_node("/root/GlobalVariables")
 
 # Button presses
 func _on_gotoMenu_pressed():
 	get_tree().change_scene("res://Assets/Scenes/Menu/titleScreen.tscn")
 	get_tree().paused = false
-	track_var.clear()
+	glob_var.clear()
 	pass
 
 func _on_gotoSettings_pressed():
@@ -31,31 +31,31 @@ func _on_quitButton_pressed():
 
 # Level select
 func _on_snowButton_pressed():
-	track_var.track = 0
+	glob_var.track = 0
 	get_tree().change_scene("res://Assets/Scenes/Menu/carSelectScreen.tscn")
 	pass
 
 func _on_desertButton_pressed():
-	track_var.track = 1
+	glob_var.track = 1
 	get_tree().change_scene("res://Assets/Scenes/Menu/carSelectScreen.tscn")
 	pass
 
 
 # Car select
 func _on_car1Button_pressed(): # Racecar
-	if track_var.track == 0:
-		track_var.higscore_key = 'snow_race'
+	if glob_var.track == 0:
+		glob_var.higscore_key = 'snow_race'
 		get_tree().change_scene("res://Assets/Scenes/SnowLevelRace.tscn")
-	if track_var.track == 1:
-		track_var.higscore_key = 'desert_race'
+	if glob_var.track == 1:
+		glob_var.higscore_key = 'desert_race'
 		get_tree().change_scene("res://Assets/Scenes/DesertLevelRace.tscn")
 
 func _on_car2Button_pressed(): # Truck
-	if track_var.track == 0:
-		track_var.higscore_key = 'snow_truck'
+	if glob_var.track == 0:
+		glob_var.higscore_key = 'snow_truck'
 		get_tree().change_scene("res://Assets/Scenes/SnowLevelPickup.tscn")
-	if track_var.track == 1:
-		track_var.higscore_key = 'desert_truck'
+	if glob_var.track == 1:
+		glob_var.higscore_key = 'desert_truck'
 		get_tree().change_scene("res://Assets/Scenes/DesertLevelPickup.tscn")
 
 # Music control

@@ -70,9 +70,9 @@ func _on_timer_timeout_4():
 		timer5.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
 		add_child(timer5) 
 		timer5.start()
-		track_var.input_allowed = true
-		label.add_color_override("font_color",Color("00ff00"))
-		label.set('text', 'GO!')
+		glob_var.input_allowed = true
+		$Countdown/Label.add_color_override("font_color",Color("00ff00"))
+		$Countdown/Label.set('text', 'GO!')
 		nuOfFinishedTimers += 1
 	
 func _on_timer_timeout_5():

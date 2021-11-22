@@ -27,13 +27,13 @@ var velocity = Vector3.ZERO  # current velocity
 
 var steer_angle = 0.0  # current wheel angle
 
-onready var track_var = get_node("/root/TrackVariables")
+onready var glob_var = get_node("/root/GlobalVariables")
 
 
 
 
 func _physics_process(delta):
-	if is_on_floor() && track_var.input_allowed:
+	if is_on_floor() && glob_var.input_allowed:
 		get_input()
 		apply_friction(delta)
 		calculate_steering(delta)
