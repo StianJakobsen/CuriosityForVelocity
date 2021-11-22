@@ -39,6 +39,7 @@ var sound_has_played = false
 onready var track_var = get_node("/root/TrackVariables")
 
 func _ready():
+	$pauseScreen.hide()
 	$CarMesh/tmpParent/truck/body.mesh.surface_set_material(1, red_paint)
 	$Ball/DebugMesh.visible = show_debug
 	ground_ray.add_exception(ball)
@@ -103,6 +104,11 @@ func _on_timer_timeout_5():
 
 	
 func _process(delta):
+#	if Input.is_action_pressed("pause") and track_var.input_allowed:
+#		track_var.time_paused = OS.get_ticks_msec()
+#		get_tree().paused = true
+#		$pauseScreen.show()
+	
 	# Can't steer/accelerate when in the air
 	if not ground_ray.is_colliding() or not track_var.input_allowed:
 		return

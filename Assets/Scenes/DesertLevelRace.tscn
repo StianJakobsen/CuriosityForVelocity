@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Materials/desert.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Tracks/DessertTrack.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Cars/cars_kenny/RaceCar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Scenes/ChaseCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Materials/desert_env.tres" type="Environment" id=5]
+[ext_resource path="res://Assets/Scenes/Menu/pauseScreen.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 material = ExtResource( 1 )
@@ -35,5 +36,8 @@ far = 800.0
 
 [node name="RaceCar" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.0647239, 0, 0.997903, 0, 1, 0, -0.997903, 0, -0.0647239, 24.9968, 1.63878, 56.8405 )
+
+[node name="pauseScreen" parent="RaceCar" instance=ExtResource( 6 )]
+pause_mode = 2
 
 [connection signal="change_camera" from="RaceCar" to="ChaseCamera" method="_on_change_camera"]

@@ -18,3 +18,9 @@ func _on_lapsBar_value_changed(value):
 	$lapsNumber.text = str(round(value))
 	track_var.num_laps = round(value)
 	pass
+
+
+func _on_resumeButton_pressed():
+	get_tree().paused = false
+	hide()
+	pass # Replace with function body.

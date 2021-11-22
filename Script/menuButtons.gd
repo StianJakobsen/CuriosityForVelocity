@@ -5,6 +5,8 @@ onready var track_var = get_node("/root/TrackVariables")
 # Button presses
 func _on_gotoMenu_pressed():
 	get_tree().change_scene("res://Assets/Scenes/Menu/titleScreen.tscn")
+	get_tree().paused = false
+	track_var.clear()
 	pass
 
 func _on_gotoSettings_pressed():
@@ -26,7 +28,6 @@ func _on_gotoCredits_pressed():
 func _on_quitButton_pressed():
 	get_tree().quit()
 	pass
-
 
 # Level select
 func _on_snowButton_pressed():

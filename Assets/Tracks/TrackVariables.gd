@@ -7,6 +7,8 @@ var sector1 = false
 var sector2 = false
 var start = true
 
+var time_paused = 0
+
 var last_lap_time
 
 var time_start = 0
@@ -33,8 +35,6 @@ func clear():
 	last_lap_time
 	time_start = 0
 	time_start_lap = 0
-	# Settings
-	volume = 100	# 0 to 100
 	# Track/car selection
 	track = 1		# 1 = desert. 2 = snow.
 	car = 1			# 1 = racecar. 2 = car2. 3 = car3.

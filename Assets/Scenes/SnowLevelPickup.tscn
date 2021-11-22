@@ -1,19 +1,20 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Materials/snow_env.tres" type="Environment" id=1]
 [ext_resource path="res://Assets/Cars/cars_kenny/CarPickup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Scenes/ChaseCamera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Tracks/SnowTrack.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Textures/Snow/TexturesCom_Road_Snow1_4x4_1K_normal.jpg" type="Texture" id=5]
+[ext_resource path="res://Assets/Scenes/Menu/pauseScreen.tscn" type="PackedScene" id=6]
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=1]
 roughness = 0.9
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 5 )
 
 [sub_resource type="CubeMesh" id=2]
-material = SubResource( 4 )
+material = SubResource( 1 )
 size = Vector3( 1000, 1, 1000 )
 
 [sub_resource type="BoxShape" id=3]
@@ -45,5 +46,8 @@ transform = Transform( 1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -0.00489998, 1, 0.041080
 transform = Transform( 0.0903197, 0, -0.995913, 0, 1, 0, 0.995913, 0, 0.0903197, 0, 3.22162, -72.3313 )
 acceleration = 80
 steering = 22
+
+[node name="pauseScreen" parent="CarPickup" instance=ExtResource( 6 )]
+pause_mode = 2
 
 [connection signal="change_camera" from="CarPickup" to="ChaseCamera" method="_on_CarPickup_change_camera"]

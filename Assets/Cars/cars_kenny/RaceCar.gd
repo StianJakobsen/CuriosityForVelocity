@@ -14,6 +14,7 @@ var nuOfFinishedTimers = 0
 var sound_has_played = false
 
 func _ready():
+	$pauseScreen.hide()
 	timer = Timer.new()
 	timer.connect("timeout",self,"_on_timer_timeout_1")
 	timer.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
@@ -77,6 +78,7 @@ func _input(event):
 	if event.is_action_pressed("change_camera"):
 		current_camera = wrapi(current_camera + 1, 0, num_cameras)
 		emit_signal("change_camera", $CameraPositions.get_child(current_camera))
+	
 
 
 func get_input():
@@ -87,7 +89,10 @@ func get_input():
 	$tmpParent/race/wheel_frontLeft.rotation.y = deg2rad(180) + steer_angle*2
 	acceleration = Vector3.ZERO
 	if Input.is_action_pressed("accelerate"):
-		
 		acceleration = -transform.basis.z * engine_power
 	if Input.is_action_pressed("brake"):
 		acceleration = -transform.basis.z * braking
+#	if Input.is_action_pressed("pause"):
+#		track_var.time_paused = OS.get_ticks_msec()
+#		get_tree().paused = true
+#		$pauseScreen.show()
