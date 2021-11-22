@@ -2,7 +2,7 @@ extends Node2D
 
 onready var glob_var = get_node("/root/GlobalVariables")
 
-var default = load("res://Assets/Music/aggressive_racing.mp3")
+var default = load("res://Assets/Music/MEGALOVANIA.mp3")
 
 func _ready():
 	$Music.stream = default

@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Materials/snow_env.tres" type="Environment" id=1]
 [ext_resource path="res://Assets/Scenes/ChaseCamera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Tracks/SnowTrack.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Cars/cars_kenny/RaceCar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Cars/car_scenes/RaceCar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Textures/Snow/TexturesCom_Road_Snow1_4x4_1K_normal.jpg" type="Texture" id=5]
 [ext_resource path="res://Assets/Scenes/Menu/pauseScreen.tscn" type="PackedScene" id=6]
 

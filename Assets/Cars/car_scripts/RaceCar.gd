@@ -1,4 +1,4 @@
-extends "res://Assets/Cars/cars_kenny/car_base.gd"
+extends "res://Assets/Cars/car_scripts/car_base.gd"
 
 signal change_camera
 

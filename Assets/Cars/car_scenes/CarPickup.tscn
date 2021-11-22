@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Assets/Cars/cars_kenny/CarPickup.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Cars/car_scripts/CarPickup.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Cars/car_models/truck.glb" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Cars/cars_kenny/Smoke.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Cars/car_scenes/Smoke.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Scenes/CountDownScene.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Sounds/Mario_beeping2.wav" type="AudioStream" id=6]
 

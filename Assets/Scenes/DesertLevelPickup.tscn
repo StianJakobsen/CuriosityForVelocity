@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Materials/desert.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Tracks/DessertTrack.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Cars/cars_kenny/CarPickup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Cars/car_scenes/CarPickup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Scenes/ChaseCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Materials/desert_env.tres" type="Environment" id=5]
 [ext_resource path="res://Assets/Scenes/Menu/pauseScreen.tscn" type="PackedScene" id=6]
