@@ -151,7 +151,7 @@ mesh = SubResource( 8 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="GoalLine"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 7.515, 0, -0.058, 2.994 )
+transform = Transform( 1, 0, -1.78814e-07, 0, 1, 0, 0, 0, 7.515, 0, -0.444283, 2.99399 )
 shape = SubResource( 9 )
 
 [node name="LapTimeInterface" parent="GoalLine" instance=ExtResource( 6 )]

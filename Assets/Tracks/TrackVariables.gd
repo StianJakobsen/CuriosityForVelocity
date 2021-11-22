@@ -17,12 +17,50 @@ var volume = 100	# 0 to 100
 
 # Track/car selection
 var track = 1		# 1 = desert. 2 = snow.
-var car = 1			# 1 = racecar. 2 = car2. 3 = car3.
-
-var tracks =  [load('res://Assets/Scenes/DesertLevel.tscn'), load('res://Assets/Scenes/SnowLevel.tscn')]
-var cars = [load('res://Assets/Cars/cars_kenny/RaceCar.tscn')]
+var higscore_key
 
 var input_allowed = false
+
+var best_time = INF
+
+
+var savegame = File.new() #file
+var save_path = "res://savegame.save" #place of the file
+var save_data = {"snow_race": {'username': INF},
+				"snow_truck": {'username': INF},
+				"desert_race": {'username': INF},
+				"desert_truck": {'username': INF}} #variable to store data
+
+func create_save():
+   savegame.open(save_path, File.WRITE)
+   savegame.store_var(save_data)
+   savegame.close()
+
+func save(high_score):    
+   save_data[higscore_key] = high_score #data to save
+   savegame.open(save_path, File.WRITE) #open file to write
+   savegame.store_var(save_data) #store the data
+   savegame.close() # close the file
+
+func read_savegame(key):
+   savegame.open(save_path, File.READ) #open the file
+   save_data = savegame.get_var() #get the value
+   savegame.close() #close the file
+   return save_data[key].values()[0] #return the value
+
+func get_username(key):
+   savegame.open(save_path, File.READ) #open the file
+   save_data = savegame.get_var() #get the value
+   savegame.close() #close the file
+   return save_data[key].keys()[0] #return the value
+
+
+func msec_to_time_string(time):
+	var total_sec = time / 1000
+	var minute = floor(total_sec / 60)
+	var sec = total_sec - 60 * minute
+	var msec = time - sec * 1000
+	return str(minute) + ":" + str(sec) + ":" + str(msec)
 
 func clear():
 	lap = 1
@@ -37,7 +75,5 @@ func clear():
 	volume = 100	# 0 to 100
 	# Track/car selection
 	track = 1		# 1 = desert. 2 = snow.
-	car = 1			# 1 = racecar. 2 = car2. 3 = car3.
-	tracks =  [load('res://Assets/Scenes/DesertLevel.tscn'), load('res://Assets/Scenes/SnowLevel.tscn')]
-	cars = [load('res://Assets/Cars/cars_kenny/RaceCar.tscn')]
 	input_allowed = false
+	best_time = INF
