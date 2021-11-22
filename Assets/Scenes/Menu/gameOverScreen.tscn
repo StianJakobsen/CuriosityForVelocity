@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Textures/Icons/menu_background.jpg" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/DAGGERSQUARE.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Script/menuButtons.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Scenes/Menu/LapTimeTable.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Fonts/font_for_interface.tres" type="DynamicFont" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -17,7 +19,7 @@ outline_color = Color( 0.0980392, 0.376471, 0.396078, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 64
+size = 40
 font_data = ExtResource( 2 )
 
 [node name="carSelectScreen" type="Control"]
@@ -28,8 +30,10 @@ __meta__ = {
 }
 
 [node name="titleBackground" type="TextureRect" parent="."]
-margin_right = 1280.0
-margin_bottom = 800.0
+margin_left = 0.937378
+margin_top = 1.87476
+margin_right = 1280.94
+margin_bottom = 801.875
 texture = ExtResource( 1 )
 expand = true
 __meta__ = {
@@ -75,14 +79,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="gameover" type="Label" parent="."]
-margin_left = 385.769
-margin_top = 189.547
-margin_right = 859.769
-margin_bottom = 267.547
-rect_rotation = -17.5539
+[node name="LapTimeTable" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="LapTimeTable"]
+margin_left = 369.313
+margin_top = 230.0
+margin_right = 577.313
+margin_bottom = 308.0
 custom_fonts/font = SubResource( 3 )
-text = "you did great:))"
+text = "Best time:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="LapTimeTable"]
+margin_left = 713.345
+margin_top = 230.0
+margin_right = 807.345
+margin_bottom = 279.0
+custom_fonts/font = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="LapTimeTable"]
+margin_left = 369.313
+margin_top = 343.08
+margin_right = 562.313
+margin_bottom = 392.08
+custom_fonts/font = ExtResource( 5 )
+text = "Highscore:"
+
+[node name="Highscore" type="Label" parent="LapTimeTable"]
+margin_left = 713.345
+margin_top = 343.08
+margin_right = 906.345
+margin_bottom = 392.08
+custom_fonts/font = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 431.194
+margin_top = 112.485
+margin_right = 791.194
+margin_bottom = 161.485
+custom_fonts/font = ExtResource( 5 )
+text = "No record for you!!"
 __meta__ = {
 "_edit_use_anchors_": false
 }

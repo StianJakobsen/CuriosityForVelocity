@@ -1,8 +1,8 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=4]
 font_path = "res://Assets/Fonts/DAGGERSQUARE.otf"
 
 [resource]
-size = 30
-font_data = SubResource( 1 )
+size = 40
+font_data = SubResource( 4 )

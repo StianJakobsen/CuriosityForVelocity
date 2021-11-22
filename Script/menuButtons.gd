@@ -44,14 +44,18 @@ func _on_desertButton_pressed():
 # Car select
 func _on_car1Button_pressed(): # Racecar
 	if track_var.track == 0:
+		track_var.higscore_key = 'snow_race'
 		get_tree().change_scene("res://Assets/Scenes/SnowLevelRace.tscn")
 	if track_var.track == 1:
+		track_var.higscore_key = 'desert_race'
 		get_tree().change_scene("res://Assets/Scenes/DesertLevelRace.tscn")
 
 func _on_car2Button_pressed(): # Truck
 	if track_var.track == 0:
+		track_var.higscore_key = 'snow_truck'
 		get_tree().change_scene("res://Assets/Scenes/SnowLevelPickup.tscn")
 	if track_var.track == 1:
+		track_var.higscore_key = 'desert_truck'
 		get_tree().change_scene("res://Assets/Scenes/DesertLevelPickup.tscn")
 
 # Music control

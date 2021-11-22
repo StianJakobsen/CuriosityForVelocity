@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://LineEdit.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Textures/Icons/menu_background.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/DAGGERSQUARE.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Script/menuButtons.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Scenes/Menu/Control.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Fonts/font_for_interface.tres" type="DynamicFont" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 2
+outline_color = Color( 0.0980392, 0.376471, 0.396078, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Assets/Fonts/DAGGERSQUARE.otf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 60
+font_data = SubResource( 4 )
+
+[node name="gameOverScreenHighscore" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="titleBackground" type="TextureRect" parent="."]
+margin_left = 0.710449
+margin_top = 2.84158
+margin_right = 1280.71
+margin_bottom = 802.842
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonsNode" type="Node2D" parent="."]
+position = Vector2( 0, 550 )
+
+[node name="quitButton" type="Button" parent="buttonsNode"]
+margin_left = 470.0
+margin_top = 100.0
+margin_right = 810.0
+margin_bottom = 200.0
+rect_pivot_offset = Vector2( -556.287, -278.72 )
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.631373, 0, 0, 1 )
+enabled_focus_mode = 0
+text = "Ragequit"
+flat = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gameover" type="Label" parent="."]
+margin_left = 361.769
+margin_top = 61.547
+margin_right = 996.769
+margin_bottom = 220.547
+custom_fonts/font = SubResource( 3 )
+text = "Congratz! You got a 
+new highcore :))"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 472.0
+margin_top = 408.0
+margin_right = 804.0
+margin_bottom = 491.0
+custom_fonts/font = SubResource( 5 )
+text = "Username"
+expand_to_text_length = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 650.0
+margin_top = 267.107
+margin_right = 722.0
+margin_bottom = 304.107
+custom_fonts/font = ExtResource( 6 )
+text = "Time"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLabel" type="Label" parent="Control"]
+margin_left = 443.285
+margin_top = 267.107
+margin_right = 531.285
+margin_bottom = 304.107
+custom_fonts/font = ExtResource( 6 )
+text = "Highscore:  "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="buttonsNode/quitButton" to="buttonsNode/quitButton" method="_on_quitButton_pressed"]
+[connection signal="text_entered" from="LineEdit" to="LineEdit" method="_on_LineEdit_text_entered"]
