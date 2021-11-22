@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var track_var = get_node("/root/TrackVariables")
+onready var glob_var = get_node("/root/GlobalVariables")
 
 var default = load("res://Assets/Music/aggressive_racing.mp3")
 
@@ -15,5 +15,5 @@ func change_to_song(song):
 
 func adjust_volume(vol):
 	$Music.volume_db = vol*0.8 - 80 # from % to Db
-	track_var.volume = vol
+	glob_var.volume = vol
 	pass

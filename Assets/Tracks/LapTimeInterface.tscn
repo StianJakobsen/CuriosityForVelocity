@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Fonts/font_for_interface.tres" type="DynamicFont" id=1]
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Assets/Fonts/DAGGERSQUARE.otf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = SubResource( 4 )
 
 [node name="LapTimeInterface" type="Node2D"]
 
@@ -8,9 +21,9 @@
 margin_left = 100.0
 margin_top = 1.0
 margin_right = 167.0
-margin_bottom = 38.0
+margin_bottom = 50.0
 rect_scale = Vector2( 0.981691, 0.989241 )
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -21,7 +34,7 @@ margin_top = 1.0
 margin_right = 77.0
 margin_bottom = 37.0
 rect_scale = Vector2( 0.981691, 0.989241 )
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -31,7 +44,7 @@ margin_left = 1125.0
 margin_top = 1.0
 margin_right = 1165.0
 margin_bottom = 38.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

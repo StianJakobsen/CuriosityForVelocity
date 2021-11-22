@@ -64,7 +64,7 @@ func _on_timer_timeout_4():
 		timer5.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
 		add_child(timer5) 
 		timer5.start()
-		track_var.input_allowed = true
+		glob_var.input_allowed = true
 		$Countdown/Label.add_color_override("font_color",Color("00ff00"))
 		$Countdown/Label.set('text', 'GO!')
 		nuOfFinishedTimers += 1
@@ -93,6 +93,6 @@ func get_input():
 	if Input.is_action_pressed("brake"):
 		acceleration = -transform.basis.z * braking
 #	if Input.is_action_pressed("pause"):
-#		track_var.time_paused = OS.get_ticks_msec()
+#		glob_var.time_paused = OS.get_ticks_msec()
 #		get_tree().paused = true
 #		$pauseScreen.show()

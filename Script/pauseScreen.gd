@@ -1,6 +1,6 @@
 extends Control
 
-onready var track_var = get_node("/root/TrackVariables")
+onready var glob_var = get_node("/root/GlobalVariables")
 
 func _on_resumeButton_pressed():
 	get_tree().paused = false
@@ -11,7 +11,7 @@ func _on_resumeButton_pressed():
 func _input(event):
 	if event.is_action_pressed("pause"):
 		if get_tree().paused == false: # if not paused, pause
-			track_var.time_paused = OS.get_ticks_msec()
+			glob_var.time_paused = OS.get_ticks_msec()
 			get_tree().paused = true
 			show()
 		else: # else, resume game
@@ -21,6 +21,6 @@ func _input(event):
 	pass
 
 func offset_track_timer():
-	track_var.time_paused = OS.get_ticks_msec() - track_var.time_paused
-	track_var.time_start += track_var.time_paused
-	track_var.time_start_lap += track_var.time_paused
+	glob_var.time_paused = OS.get_ticks_msec() - glob_var.time_paused
+	glob_var.time_start += glob_var.time_paused
+	glob_var.time_start_lap += glob_var.time_paused

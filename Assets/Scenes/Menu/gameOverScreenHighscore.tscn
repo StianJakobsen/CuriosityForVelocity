@@ -1,28 +1,28 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://LineEdit.gd" type="Script" id=1]
+[ext_resource path="res://Script/LineEdit.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Icons/menu_background.jpg" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/DAGGERSQUARE.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://Script/menuButtons.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Scenes/Menu/Control.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Fonts/font_for_interface.tres" type="DynamicFont" id=6]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 64
 outline_size = 2
 outline_color = Color( 0.0980392, 0.376471, 0.396078, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 64
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFontData" id=4]
+[sub_resource type="DynamicFontData" id=3]
 font_path = "res://Assets/Fonts/DAGGERSQUARE.otf"
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 60
-font_data = SubResource( 4 )
+font_data = SubResource( 3 )
 
 [node name="gameOverScreenHighscore" type="Control"]
 anchor_right = 1.0
@@ -52,7 +52,7 @@ margin_right = 810.0
 margin_bottom = 200.0
 rect_pivot_offset = Vector2( -556.287, -278.72 )
 focus_mode = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.631373, 0, 0, 1 )
@@ -69,7 +69,7 @@ margin_left = 361.769
 margin_top = 61.547
 margin_right = 996.769
 margin_bottom = 220.547
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Congratz! You got a 
 new highcore :))"
 __meta__ = {
@@ -81,7 +81,7 @@ margin_left = 472.0
 margin_top = 408.0
 margin_right = 804.0
 margin_bottom = 491.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Username"
 expand_to_text_length = true
 script = ExtResource( 1 )

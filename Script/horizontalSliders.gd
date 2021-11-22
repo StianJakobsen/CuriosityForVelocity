@@ -1,12 +1,12 @@
 extends HScrollBar
 
-onready var track_var = get_node("/root/TrackVariables")
+onready var glob_var = get_node("/root/GlobalVariables")
 
 func _ready():
 	if self.name == "volumeBar":
-		self.value = track_var.volume
+		self.value = glob_var.volume
 	if self.name == "lapsBar":
-		self.value = track_var.num_laps
+		self.value = glob_var.num_laps
 	pass
 
 func _on_volumeBar_value_changed(value):
@@ -16,7 +16,7 @@ func _on_volumeBar_value_changed(value):
 
 func _on_lapsBar_value_changed(value):
 	$lapsNumber.text = str(round(value))
-	track_var.num_laps = round(value)
+	glob_var.num_laps = round(value)
 	pass
 
 
