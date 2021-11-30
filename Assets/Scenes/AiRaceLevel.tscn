@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/Materials/hill_env.tres" type="Environment" id=1]
+[ext_resource path="res://Assets/Materials/hill_terrain.tres" type="Material" id=2]
+[ext_resource path="res://Assets/Scenes/ChaseCamera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Tracks/AiTrack.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Cars/car_scenes/RaceCar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Scenes/Menu/pauseScreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Cars/car_scenes/AiCar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Scenes/AiRaceLevel.gd" type="Script" id=8]
+
+[sub_resource type="CubeMesh" id=1]
+material = ExtResource( 2 )
+size = Vector3( 1000, 1, 1000 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 500, 0.5, 500 )
+
+[node name="AiRaceLevel" type="Spatial"]
+script = ExtResource( 8 )
+
+[node name="Ground" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground"]
+shape = SubResource( 2 )
+
+[node name="Sun" type="DirectionalLight" parent="."]
+transform = Transform( 0.900691, 0.204282, -0.383439, 0.0553926, 0.821364, 0.567708, 0.430915, -0.532569, 0.728479, 0, 8.62851, 0 )
+visible = false
+
+[node name="ChaseCamera" parent="." instance=ExtResource( 3 )]
+environment = ExtResource( 1 )
+far = 200.0
+
+[node name="AiTrack" parent="." instance=ExtResource( 4 )]
+
+[node name="PathFollow" type="PathFollow" parent="AiTrack"]
+transform = Transform( -0.020031, 0, 0.999799, 0, 1, 0, -0.999799, 0, -0.020031, 19.4243, 0, -32.0017 )
+rotation_mode = 4
+
+[node name="AiCar" parent="." groups=[
+"AiCar",
+] instance=ExtResource( 7 )]
+transform = Transform( -0.00879614, 0, -0.999962, 0, 1, 0, 0.999962, 0, -0.00879614, 25.37, 1.195, -50.991 )
+wheel_base = 1
+engine_power = 110
+num_rays = 32
+look_ahead = 12
+brake_distance = 6.0
+
+[node name="RaceCar" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.00879626, 0, -0.999961, 0, 1, 0, 0.999961, 0, -0.00879626, 22.3541, 1.78389, -44.1188 )
+
+[node name="pauseScreen" parent="RaceCar" instance=ExtResource( 6 )]
+
+[connection signal="change_camera" from="RaceCar" to="ChaseCamera" method="_on_RaceCar_change_camera"]

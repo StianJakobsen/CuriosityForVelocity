@@ -204,3 +204,7 @@ func _on_SnowTrack_curve_changed():
 
 func _on_DessertTrack_curve_changed():
 	call_deferred('_update')
+
+
+func _on_AiTrack_curve_changed():
+	call_deferred('_update')

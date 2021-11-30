@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Textures/Asphalt/TexturesCom_Roads0148_1_seamless_S.jpg" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+
+uniform sampler2D road_texture;
+uniform sampler2D road_normalmap;
+
+void fragment() {
+	vec2 road_uv = vec2(UV.y, UV.x * 0.25);
+	
+	vec4 color = texture(road_texture, road_uv);
+	NORMALMAP = texture(road_normalmap, road_uv).rgb;
+	ALBEDO = color.rgb;
+	METALLIC = 0.0;
+	ROUGHNESS = 1.0;
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/road_texture = ExtResource( 1 )

@@ -18,19 +18,20 @@ var volume = 100	# 0 to 100
 
 # Track/car selection
 var track = 1		# 1 = desert. 2 = snow.
-var higscore_key
+var higscore_key = 'tarmac'
 
 var input_allowed = false
 
 var best_time = INF
-
+var ai_race = true
 
 var savegame = File.new() #file
 var save_path = "res://savegame.save" #place of the file
 var save_data = {"snow_race": {'username': INF},
 				"snow_truck": {'username': INF},
 				"desert_race": {'username': INF},
-				"desert_truck": {'username': INF}} #variable to store data
+				"desert_truck": {'username': INF},
+				"tarmac": {'username': INF}} #variable to store data
 
 func create_save():
    savegame.open(save_path, File.WRITE)

@@ -19,14 +19,21 @@ func _process(delta):
 
 
 func _on_GoalLine_body_entered(body):
-	if body.is_in_group('Car'):
-		if glob_var.start:
+	if glob_var.start and body.is_in_group('Car'):
 			glob_var.time_start = OS.get_ticks_msec()
 			glob_var.time_start_lap = OS.get_ticks_msec()
 			glob_var.start = false
 			$LapTimeInterface/Lap.text = 'Lap: 1'
-			
-		if glob_var.sector1 and glob_var.sector2:
+	
+	if glob_var.sector1 and glob_var.sector2:
+		if glob_var.ai_race:
+			if glob_var.lap == glob_var.num_laps:
+				if body.is_in_group('Car'):
+					get_tree().change_scene("res://Assets/Scenes/Menu/gameOverAILost.tscn")
+				elif body.is_in_group('AiCar'):
+					get_tree().change_scene("res://Assets/Scenes/Menu/gameOverAIWon.tscn")
+		
+		elif body.is_in_group('Car'):
 			time_elapsed = OS.get_ticks_msec() - glob_var.time_start_lap
 			if time_elapsed < glob_var.best_time:
 				glob_var.best_time = time_elapsed
@@ -48,8 +55,6 @@ func _on_GoalLine_body_entered(body):
 			
 			glob_var.sector1 = false
 			glob_var.sector2 = false
-		else:
-			print('You have to cross sector 1 and 2')
 				
 func _on_Sector1_body_entered(body):
 	if body.is_in_group('Car'):
