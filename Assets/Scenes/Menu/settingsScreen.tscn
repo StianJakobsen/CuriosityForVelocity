@@ -1,9 +1,9 @@
 [gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Assets/Textures/Icons/menu_background.jpg" type="Texture" id=1]
-[ext_resource path="res://Script/menuButtons.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/menuButtons.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/DAGGERSQUARE.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://Script/horizontalSliders.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/horizontalSliders.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64

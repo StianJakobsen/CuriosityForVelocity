@@ -1,12 +1,12 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Assets/Tracks/base_track_script.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/base_track_script.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Snow/TexturesCom_Road_Snow1_4x4_1K_albedo.jpg" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/Snow/TexturesCom_Road_Snow1_4x4_1K_normal.jpg" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/goal_line.jpeg" type="Texture" id=4]
 [ext_resource path="res://Assets/Materials/rail_texture.tres" type="Material" id=5]
 [ext_resource path="res://Assets/Tracks/LapTimeInterface.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Scenes/GoalLine.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/GoalLine.gd" type="Script" id=7]
 
 [sub_resource type="Curve3D" id=1]
 _data = {

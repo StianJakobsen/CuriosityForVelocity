@@ -9,7 +9,11 @@ func _ready():
 	if not glob_var.savegame.file_exists(glob_var.save_path):
 		print('file not exist')
 		glob_var.create_save()
-	highscore = glob_var.read_savegame(glob_var.higscore_key)
+	
+	if not glob_var.ai_race:
+		highscore = glob_var.read_savegame(glob_var.higscore_key)
+	else:
+		highscore = INF
 
 func _process(delta):
 	if not glob_var.start:
@@ -57,12 +61,12 @@ func _on_GoalLine_body_entered(body):
 			glob_var.sector2 = false
 				
 func _on_Sector1_body_entered(body):
-	if body.is_in_group('Car'):
+	if body.is_in_group('Car') or body.is_in_group('AiCar'):
 		glob_var.sector1 = true
 
 
 func _on_Sector2_body_entered(body):
-	if body.is_in_group('Car'):
+	if body.is_in_group('Car') or body.is_in_group('AiCar'):
 		glob_var.sector2 = true
 
 func clear():

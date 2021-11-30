@@ -1,14 +1,13 @@
 extends "res://Assets/Cars/car_scripts/ai_car_base.gd"
 
-export var num_rays = 16
-export var look_ahead = 10
-export var brake_distance = 5.0
+export var num_rays = 32
+export var look_ahead = 12
+export var brake_distance = 6.0
 
 var interest = []
 var danger = []
 var chosen_dir = Vector3.ZERO
 var forward_ray
-var timer
 
 onready var left_smoke = $SmokeLeft
 onready var right_smoke = $SmokeRight
@@ -16,7 +15,7 @@ onready var right_smoke = $SmokeRight
 
 func _ready():
 	randomize()
-	engine_power *= rand_range(0.9, 1.1)
+	engine_power *= rand_range(0.95, 1.1)
 	interest.resize(num_rays)
 	danger.resize(num_rays)
 	add_rays()
