@@ -55,12 +55,11 @@ func get_username(key):
    savegame.close() #close the file
    return save_data[key].keys()[0] #return the value
 
-
 func msec_to_time_string(time):
 	var total_sec = time / 1000
 	var minute = floor(total_sec / 60)
 	var sec = total_sec - 60 * minute
-	var msec = time - sec * 1000
+	var msec = (time - sec * 1000) - (60000*minute)
 	return str(minute) + ":" + str(sec) + ":" + str(msec)
 
 func clear():

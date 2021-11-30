@@ -9,7 +9,7 @@ export var steering_limit = 6.0  # front wheel max turning angle (deg)
 
 export var engine_power = 50
 export var braking = -20
-export var friction = -10.0
+export var friction = -15.0
 export var drag = -2.0
 export var max_speed_reverse = 10
 

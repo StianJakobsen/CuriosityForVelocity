@@ -94,12 +94,11 @@ func get_input():
 	left_wheel.rotation.y = deg2rad(180) + steer_angle*2
 	acceleration = Vector3.ZERO
 	if Input.is_action_pressed("accelerate"):
-		
 		acceleration = -transform.basis.z * engine_power
 	if Input.is_action_pressed("brake"):
 		acceleration = -transform.basis.z * braking
 	
-	if acceleration.length() > 0:
+	if velocity.length() > 10:
 		left_smoke.emitting = true
 		right_smoke.emitting = true
 	else:

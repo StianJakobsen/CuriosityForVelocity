@@ -22,7 +22,7 @@ font_data = ExtResource( 2 )
 size = 40
 font_data = ExtResource( 2 )
 
-[node name="carSelectScreen" type="Control"]
+[node name="GameOverScreen" type="Control"]
 margin_right = 45.0
 margin_bottom = 31.0
 __meta__ = {
