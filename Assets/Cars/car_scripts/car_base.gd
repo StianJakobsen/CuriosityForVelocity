@@ -7,7 +7,7 @@ export var wheel_base = 2  # distance between front/rear axles
 
 export var steering_limit = 6.0  # front wheel max turning angle (deg)
 
-export var engine_power = 50
+export var engine_power = 100
 export var braking = -20
 export var friction = -15.0
 export var drag = -2.0

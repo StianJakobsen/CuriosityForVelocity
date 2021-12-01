@@ -48,7 +48,6 @@ material = SubResource( 8 )
 ] instance=ExtResource( 1 )]
 transform = Transform( 0.998805, 0, 0, 0, 0.998805, 0, 0, 0, 0.998805, -0.00519491, -0.0560076, 0.0155196 )
 script = ExtResource( 2 )
-engine_power = 100
 max_speed_reverse = 25
 
 [node name="body" parent="tmpParent/race" index="0"]

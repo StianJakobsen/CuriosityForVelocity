@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GlobalVariables="*res://Script/GlobalVariables.gd"
+GlobalVariables="*res://Scripts/GlobalVariables.gd"
 BackgroundMusic="*res://Assets/Music/backgroundMusic.tscn"
 
 [display]

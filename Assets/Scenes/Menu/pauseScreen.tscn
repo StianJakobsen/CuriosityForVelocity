@@ -1,8 +1,8 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Script/menuButtons.gd" type="Script" id=1]
-[ext_resource path="res://Script/horizontalSliders.gd" type="Script" id=2]
-[ext_resource path="res://Script/pauseScreen.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/menuButtons.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/horizontalSliders.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/pauseScreen.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Fonts/DAGGERSQUARE.otf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]

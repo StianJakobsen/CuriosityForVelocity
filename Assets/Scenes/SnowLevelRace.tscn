@@ -51,7 +51,6 @@ curve = SubResource( 4 )
 
 [node name="RaceCar" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.0699528, -0.000424184, -0.99755, 0.00141914, 0.999999, -0.000325719, 0.997549, -0.00139288, 0.0699533, 14.1111, 2.15218, -73.5944 )
-engine_power = 50
 max_speed_reverse = 10
 
 [node name="pauseScreen" parent="RaceCar" instance=ExtResource( 6 )]
