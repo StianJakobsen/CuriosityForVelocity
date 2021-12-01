@@ -30,6 +30,10 @@ func _on_quitButton_pressed():
 	pass
 
 # Level select
+func _on_gotoRaceMode_pressed():
+	get_tree().change_scene("res://Assets/Scenes/Menu/raceModeScreen.tscn")
+	pass
+
 func _on_snowButton_pressed():
 	glob_var.track = 0
 	get_tree().change_scene("res://Assets/Scenes/Menu/carSelectScreen.tscn")
@@ -57,6 +61,12 @@ func _on_car2Button_pressed(): # Truck
 	if glob_var.track == 1:
 		glob_var.higscore_key = 'desert_truck'
 		get_tree().change_scene("res://Assets/Scenes/DesertLevelPickup.tscn")
+
+func _on_startAIRace_pressed():
+	glob_var.ai_race = true
+	get_tree().change_scene("res://Assets/Scenes/AiRaceLevel.tscn")
+	pass
+
 
 # Music control
 func _on_playSeaShanty_pressed():

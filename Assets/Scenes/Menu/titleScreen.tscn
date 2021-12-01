@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Textures/Icons/menu_background.jpg" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/DAGGERSQUARE.otf" type="DynamicFontData" id=2]
@@ -28,13 +28,19 @@ outline_size = 2
 outline_color = Color( 0.0980392, 0.376471, 0.396078, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=8]
 size = 64
 outline_size = 2
 outline_color = Color( 0.0980392, 0.376471, 0.396078, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=6]
+size = 64
+outline_size = 2
+outline_color = Color( 0.0980392, 0.376471, 0.396078, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
 size = 64
 outline_size = 2
 outline_color = Color( 0.0980392, 0.376471, 0.396078, 1 )
@@ -107,7 +113,7 @@ __meta__ = {
 [node name="buttonsNode" type="Node2D" parent="."]
 position = Vector2( 0, 550 )
 
-[node name="startButton" type="Button" parent="buttonsNode"]
+[node name="timeTrialsButton" type="Button" parent="buttonsNode"]
 margin_left = 200.0
 margin_bottom = 84.0
 focus_mode = 0
@@ -116,24 +122,24 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.631373, 0, 0, 1 )
 enabled_focus_mode = 0
-text = "Start Game"
+text = "Time Trials"
 flat = true
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="settingsButton" type="Button" parent="buttonsNode"]
-margin_left = 700.0
-margin_right = 1070.0
+[node name="raceModeButton" type="Button" parent="buttonsNode"]
+margin_left = 710.0
+margin_right = 1080.0
 margin_bottom = 84.0
 focus_mode = 0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.631373, 0, 0, 1 )
 enabled_focus_mode = 0
-text = "Settings"
+text = "Race Mode"
 flat = true
 script = ExtResource( 5 )
 __meta__ = {
@@ -141,9 +147,9 @@ __meta__ = {
 }
 
 [node name="creditsButton" type="Button" parent="buttonsNode"]
-margin_left = 200.0
+margin_left = 100.0
 margin_top = 100.0
-margin_right = 570.0
+margin_right = 400.0
 margin_bottom = 184.0
 focus_mode = 0
 custom_fonts/font = SubResource( 6 )
@@ -158,10 +164,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="quitButton" type="Button" parent="buttonsNode"]
-margin_left = 700.0
+[node name="settingsButton" type="Button" parent="buttonsNode"]
+margin_left = 490.0
 margin_top = 100.0
-margin_right = 1070.0
+margin_right = 790.0
+margin_bottom = 184.0
+focus_mode = 0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.631373, 0, 0, 1 )
+enabled_focus_mode = 0
+text = "Settings"
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quitButton" type="Button" parent="buttonsNode"]
+margin_left = 880.0
+margin_top = 100.0
+margin_right = 1180.0
 margin_bottom = 184.0
 focus_mode = 0
 custom_fonts/font = SubResource( 7 )
@@ -176,7 +200,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="buttonsNode/startButton" to="buttonsNode/startButton" method="_on_gotoLevelSelect_pressed"]
-[connection signal="pressed" from="buttonsNode/settingsButton" to="buttonsNode/settingsButton" method="_on_gotoSettings_pressed"]
+[connection signal="pressed" from="buttonsNode/timeTrialsButton" to="buttonsNode/timeTrialsButton" method="_on_gotoLevelSelect_pressed"]
+[connection signal="pressed" from="buttonsNode/raceModeButton" to="buttonsNode/raceModeButton" method="_on_gotoRaceMode_pressed"]
 [connection signal="pressed" from="buttonsNode/creditsButton" to="buttonsNode/creditsButton" method="_on_gotoCredits_pressed"]
+[connection signal="pressed" from="buttonsNode/settingsButton" to="buttonsNode/settingsButton" method="_on_gotoSettings_pressed"]
 [connection signal="pressed" from="buttonsNode/quitButton" to="buttonsNode/quitButton" method="_on_quitButton_pressed"]
