@@ -49,5 +49,6 @@ traction_fast = 0.75
 transform = Transform( -0.00879626, 0, -0.999961, 0, 1, 0, 0.999961, 0, -0.00879626, 22.3541, 1.06925, -44.1188 )
 
 [node name="pauseScreen" parent="RaceCar" instance=ExtResource( 6 )]
+pause_mode = 2
 
 [connection signal="change_camera" from="RaceCar" to="ChaseCamera" method="_on_RaceCar_change_camera"]

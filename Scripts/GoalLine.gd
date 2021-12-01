@@ -13,7 +13,7 @@ func _ready():
 	if not glob_var.ai_race:
 		highscore = glob_var.read_savegame(glob_var.higscore_key)
 	else:
-		highscore = INF
+		highscore = 0
 
 func _process(delta):
 	if not glob_var.start:
@@ -34,10 +34,12 @@ func _on_GoalLine_body_entered(body):
 			if glob_var.lap == glob_var.num_laps:
 				if body.is_in_group('Car'):
 					get_tree().change_scene("res://Assets/Scenes/Menu/gameOverAILost.tscn")
+					return
 				elif body.is_in_group('AiCar'):
 					get_tree().change_scene("res://Assets/Scenes/Menu/gameOverAIWon.tscn")
+					return
 		
-		elif body.is_in_group('Car'):
+		if body.is_in_group('Car'):
 			time_elapsed = OS.get_ticks_msec() - glob_var.time_start_lap
 			if time_elapsed < glob_var.best_time:
 				glob_var.best_time = time_elapsed

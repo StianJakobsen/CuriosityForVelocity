@@ -23,7 +23,7 @@ var higscore_key
 var input_allowed = false
 
 var best_time = INF
-var ai_race = true
+var ai_race = false
 
 var savegame = File.new() #file
 var save_path = "res://savegame.save" #place of the file

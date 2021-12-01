@@ -4,33 +4,39 @@
 [ext_resource path="res://Assets/Textures/Icons/menu_background.jpg" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/Icons/racecar_icon2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fonts/hollowpoint3dital.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Script/horizontalSliders.gd" type="Script" id=6]
-[ext_resource path="res://Script/menuButtons.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/horizontalSliders.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/menuButtons.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Fonts/DAGGERSQUARE.otf" type="DynamicFontData" id=8]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=1]
 size = 64
 outline_size = 2
 outline_color = Color( 0.0980392, 0.376471, 0.396078, 1 )
 font_data = ExtResource( 8 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 62
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 62
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
 [sub_resource type="DynamicFont" id=4]
-size = 62
-outline_size = 4
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 62
-outline_size = 4
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=10]
 size = 168
 outline_size = 2
 outline_color = Color( 0, 0.6, 1, 1 )
 font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+outline_size = 2
+outline_color = Color( 0.639216, 1, 0, 1 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 64
@@ -39,12 +45,6 @@ outline_color = Color( 0.639216, 1, 0, 1 )
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 64
-outline_size = 2
-outline_color = Color( 0.639216, 1, 0, 1 )
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=11]
 size = 64
 outline_size = 2
 outline_color = Color( 0.0980392, 0.376471, 0.396078, 1 )
@@ -74,7 +74,7 @@ margin_top = 650.0
 margin_right = 949.0
 margin_bottom = 734.0
 focus_mode = 0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.631373, 0, 0, 1 )
@@ -104,7 +104,7 @@ __meta__ = {
 margin_top = 238.0
 margin_right = 600.0
 margin_bottom = 313.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "Racecar"
 align = 1
@@ -129,7 +129,7 @@ __meta__ = {
 margin_top = 312.0
 margin_right = 600.0
 margin_bottom = 387.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0.552941, 0, 1 )
 text = "AI"
 align = 1
@@ -142,7 +142,7 @@ margin_left = 562.715
 margin_top = 265.068
 margin_right = 778.715
 margin_bottom = 436.068
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "VS."
 align = 1
@@ -167,7 +167,7 @@ __meta__ = {
 margin_top = -80.0
 margin_right = 150.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Laps"
 align = 1
@@ -180,7 +180,7 @@ margin_left = 170.0
 margin_top = -80.0
 margin_right = 228.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "1"
 align = 1
@@ -194,7 +194,7 @@ margin_top = 530.0
 margin_right = 1019.0
 margin_bottom = 614.0
 focus_mode = 0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.631373, 0, 0, 1 )
