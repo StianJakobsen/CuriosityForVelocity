@@ -43,6 +43,7 @@ rotation_mode = 4
 ] instance=ExtResource( 7 )]
 transform = Transform( -0.00879614, 0, -0.999962, 0, 1, 0, 0.999962, 0, -0.00879614, 25.37, 1.195, -50.991 )
 wheel_base = 0.8
+engine_power = 105
 traction_fast = 0.75
 
 [node name="RaceCar" parent="." instance=ExtResource( 5 )]

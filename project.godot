@@ -27,7 +27,7 @@ window/size/resizable=false
 
 [global]
 
-smooth=false
+smooth=true
 smoot=false
 
 [input]

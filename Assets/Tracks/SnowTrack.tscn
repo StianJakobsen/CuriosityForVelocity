@@ -151,7 +151,7 @@ mesh = SubResource( 8 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="GoalLine"]
-transform = Transform( 1, 0, -1.78814e-07, 0, 1, 0, 0, 0, 7.515, 0, -0.444283, 2.99399 )
+transform = Transform( 1, 0, -2.98023e-07, 0, 1, 0, 1.49012e-08, 0, 7.515, -1.90735e-06, -0.918204, 2.99398 )
 shape = SubResource( 9 )
 
 [node name="LapTimeInterface" parent="GoalLine" instance=ExtResource( 6 )]
@@ -161,7 +161,7 @@ transform = Transform( 0.978663, 0, 0.20547, 0, 1, 0, -0.20547, 0, 0.978663, 12.
 script = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Sector1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.649689 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.200654, 0.649689 )
 shape = SubResource( 10 )
 
 [node name="LapTimeInterface" parent="Sector1" instance=ExtResource( 6 )]
@@ -170,7 +170,7 @@ shape = SubResource( 10 )
 script = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Sector2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.8785, -0.813538, 24.5454 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.8785, -0.395207, 24.5454 )
 shape = SubResource( 11 )
 
 [node name="LapTimeInterface" parent="Sector2" instance=ExtResource( 6 )]

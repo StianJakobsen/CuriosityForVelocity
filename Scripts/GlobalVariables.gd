@@ -26,7 +26,7 @@ var best_time = INF
 var ai_race = false
 
 var savegame = File.new() #file
-var save_path = "res://savegame.save" #place of the file
+var save_path = "user://highscores.save" #place of the file
 var save_data = {"snow_race": {'username': INF},
 				"snow_truck": {'username': INF},
 				"desert_race": {'username': INF},

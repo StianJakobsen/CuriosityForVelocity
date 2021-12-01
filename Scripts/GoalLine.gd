@@ -47,16 +47,17 @@ func _on_GoalLine_body_entered(body):
 			
 			glob_var.lap = glob_var.lap + 1
 			glob_var.time_start_lap = OS.get_ticks_msec()
-			
-			
+		
 			$LapTimeInterface/LapTime.text = $LapTimeInterface/LapTime.text + "Time: " + str(glob_var.last_lap_time) + ' \n'
 			
 			if (glob_var.lap - 1) == glob_var.num_laps:				
 				if glob_var.best_time < highscore:
 					get_tree().change_scene("res://Assets/Scenes/Menu/gameOverScreenHighscore.tscn")
+					return
 				else:
 					get_tree().change_scene("res://Assets/Scenes/Menu/gameOverScreen.tscn")
-			else:
+					return
+			else:	
 				$LapTimeInterface/Lap.text = $LapTimeInterface/Lap.text  + "\nLap: " + str(glob_var.lap)
 			
 			glob_var.sector1 = false
