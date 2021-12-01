@@ -28,9 +28,6 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Ground"]
 shape = SubResource( 2 )
 
-[node name="Sun" type="DirectionalLight" parent="."]
-transform = Transform( 0.900691, 0.204282, -0.383439, 0.0553926, 0.821364, 0.567708, 0.430915, -0.532569, 0.728479, 0, 8.62851, 0 )
-
 [node name="ChaseCamera" parent="." instance=ExtResource( 3 )]
 environment = ExtResource( 1 )
 far = 200.0
@@ -46,9 +43,10 @@ rotation_mode = 4
 ] instance=ExtResource( 7 )]
 transform = Transform( -0.00879614, 0, -0.999962, 0, 1, 0, 0.999962, 0, -0.00879614, 25.37, 1.195, -50.991 )
 wheel_base = 0.8
+traction_fast = 0.75
 
 [node name="RaceCar" parent="." instance=ExtResource( 5 )]
-transform = Transform( -0.00879626, 0, -0.999961, 0, 1, 0, 0.999961, 0, -0.00879626, 22.3541, 1.78389, -44.1188 )
+transform = Transform( -0.00879626, 0, -0.999961, 0, 1, 0, 0.999961, 0, -0.00879626, 22.3541, 1.06925, -44.1188 )
 
 [node name="pauseScreen" parent="RaceCar" instance=ExtResource( 6 )]
 

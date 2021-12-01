@@ -54,7 +54,7 @@ invert_faces = true
 polygon = PoolVector2Array( -5, 0, -5, -0.1, 5, -0.1, 5, 0 )
 mode = 2
 path_node = NodePath("..")
-path_interval = 0.5
+path_interval = 1.0
 path_rotation = 2
 path_local = false
 path_continuous_u = false
@@ -117,7 +117,7 @@ path_joined = true
 smooth_faces = true
 
 [node name="GoalLine" type="Area" parent="."]
-transform = Transform( -0.993625, 0, -0.075598, 0, -1, 0, 0.111404, 0, -0.658438, 19.7165, -1.05004, -30.0834 )
+transform = Transform( -0.999554, 0, -0.0179237, 0, -1, 0, 0.02438, 0, -0.662521, 19.7165, -1.05004, -30.0834 )
 script = ExtResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="GoalLine"]

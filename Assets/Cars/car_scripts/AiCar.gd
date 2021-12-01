@@ -12,6 +12,7 @@ var forward_ray
 onready var left_smoke = $SmokeLeft
 onready var right_smoke = $SmokeRight
 
+##Algoritm inspired by KidsCanCode on youtube
 
 func _ready():
 	randomize()

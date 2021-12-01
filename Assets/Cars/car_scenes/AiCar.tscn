@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Cars/car_models/race.glb" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Cars/car_scripts/AiCar.gd" type="Script" id=2]
@@ -6,42 +6,45 @@
 [ext_resource path="res://Assets/Sounds/Mario_beeping2.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Cars/car_scenes/Smoke.tscn" type="PackedScene" id=5]
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.0156863, 0.45098, 0.87451, 1 )
+
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.645791, 0.318939, 1.277 )
 
-[sub_resource type="CylinderShape" id=2]
+[sub_resource type="CylinderShape" id=3]
 radius = 0.299121
 height = 1.29299
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.348148, 0.992593 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.627451, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=6]
 _data = [ Vector2( 0, 0.306122 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.766582 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
-curve = SubResource( 5 )
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=8]
 emission_shape = 2
 emission_box_extents = Vector3( 0.2, 0, 0.2 )
 direction = Vector3( 0, 0, 0 )
 spread = 0.0
 gravity = Vector3( 0, 1, 0 )
-scale_curve = SubResource( 6 )
-color_ramp = SubResource( 4 )
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 5 )
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=9]
 flags_transparent = true
 flags_do_not_receive_shadows = true
 vertex_color_use_as_albedo = true
 
-[sub_resource type="SphereMesh" id=9]
-material = SubResource( 8 )
+[sub_resource type="SphereMesh" id=10]
+material = SubResource( 9 )
 
 [node name="AiCar" instance=ExtResource( 1 )]
 transform = Transform( 0.998805, 0, 0, 0, 0.998805, 0, 0, 0, 0.998805, -0.00519491, -0.0560076, 0.0155196 )
@@ -49,6 +52,7 @@ script = ExtResource( 2 )
 
 [node name="body" parent="tmpParent/race" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35088e-13, 0.0986079, 0 )
+material/0 = SubResource( 1 )
 
 [node name="wheel_frontLeft" parent="tmpParent/race" index="3"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.35, 0.299, -0.643 )
@@ -58,15 +62,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.3, -0.64 )
 
 [node name="CollisionShapeBody" type="CollisionShape" parent="." index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00460649, 0.42345, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CollisionShapeRearWheel" type="CollisionShape" parent="." index="2"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.00562644, 0.301772, 0.882119 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CollisionShapeFrontWheel" type="CollisionShape" parent="." index="3"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.00562644, 0.304041, -0.641353 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CameraPositions" type="Spatial" parent="." index="4"]
 
@@ -101,16 +105,16 @@ stream = ExtResource( 4 )
 [node name="SmokeLeft" parent="." index="10" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520535, 0, 0.549937 )
 emitting = false
-process_material = SubResource( 7 )
-draw_pass_1 = SubResource( 9 )
+process_material = SubResource( 8 )
+draw_pass_1 = SubResource( 10 )
 
 [node name="SmokeRight" parent="." index="11" groups=[
 "AiCar",
 ] instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.474042, 0, 0.549937 )
 emitting = false
-process_material = SubResource( 7 )
-draw_pass_1 = SubResource( 9 )
+process_material = SubResource( 8 )
+draw_pass_1 = SubResource( 10 )
 
 [node name="ContextRays" type="Spatial" parent="." index="12"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.336, 0 )
