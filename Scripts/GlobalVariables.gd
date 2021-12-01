@@ -75,3 +75,4 @@ func clear():
 	track = 1		# 1 = desert. 2 = snow.
 	input_allowed = false
 	best_time = INF
+	ai_race = false
